@@ -22,7 +22,7 @@ public abstract class GameManager {
     private GameView view;
     
     public GameManager(AbstractFabric fabric) {
-        model = new GameModel(GAME_WIDTH, GAME_HEIGHT);
+        model = new GameModel(GAME_WIDTH, GAME_HEIGHT,fabric);
         view = fabric.createGameView(model);
     }
     

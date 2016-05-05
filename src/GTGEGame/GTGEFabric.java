@@ -5,15 +5,12 @@
  */
 package GTGEGame;
 
-import Game.AbstractFabric;
-import Game.GameManager;
-import GameModel.DishObject;
-import GameModel.GameModel;
-import IModel.CollisionManager;
-import IModel.IPlayerController;
-import IView.DishObjectView;
-import IView.DishView;
-import IView.GameView;
+import GTGEModel.*;
+import GTGEView.*;
+import Game.*;
+import GameModel.*;
+import IModel.*;
+import IView.*;
 
 /**
  *
@@ -43,7 +40,6 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public CollisionManager createCollisionManager() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -53,7 +49,7 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public GameView createGameView(GameModel model) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new GameViewGTGE();
     }
 
     @Override
@@ -63,7 +59,7 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public GameManager createGameManager() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new GameManagerGTGE(this);
     }
     
 }
