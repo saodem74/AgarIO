@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class Water extends PrimitiveObject {
+
+    public Water(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

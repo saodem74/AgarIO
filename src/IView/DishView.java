@@ -6,6 +6,7 @@
 package IView;
 
 import Game.AbstractFabric;
+import GameModel.DishObject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public abstract class DishView implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getActionCommand().equals("object created")){
+            views.add(fabric.getDishObjectView((DishObject)e.getSource()));
+        }
     }
 }

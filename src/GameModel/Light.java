@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class Light extends PrimitiveObject {
+
+    public Light(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

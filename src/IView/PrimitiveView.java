@@ -11,6 +11,10 @@ package IView;
  */
 public class PrimitiveView extends DishObjectView {
 
+    public PrimitiveView(IDishObjectViewRealization r) {
+        super(r);
+    }
+
     @Override
     public void chooseColor() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class Bolid extends AliveObject {
+
+    public Bolid(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

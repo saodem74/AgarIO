@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class CO2 extends PrimitiveObject {
+
+    public CO2(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

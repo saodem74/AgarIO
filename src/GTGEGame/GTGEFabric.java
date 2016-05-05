@@ -20,7 +20,16 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public DishObject createBactery() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //create model object
+        DishObjectSpriteGTGE sprite = new DishObjectSpriteGTGE();
+        Bacterium b = new Bacterium(sprite);
+        sprite.setDishObject(b);
+        //create view object
+        IDishObjectViewRealization viewR = new DishObjectViewRealizationGTGE(sprite);
+        DishObjectView view = new BacteryView(viewR);
+        b.addListener(view);
+        createdDishObjects.put(b, view);
+        return b;
     }
 
     @Override
@@ -30,11 +39,6 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public DishObject createPrimitive() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DishObjectView getDishObjectView(DishObject model) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public abstract class PrimitiveObject extends DishObject {
+
+    public PrimitiveObject(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

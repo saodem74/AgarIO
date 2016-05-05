@@ -5,14 +5,26 @@
  */
 package GTGEModel;
 
+import GameModel.DishObject;
 import IModel.IDishObjectSprite;
+import com.golden.gamedev.object.Sprite;
 import java.awt.Point;
 
 /**
  *
  * @author tranhieu
  */
-public class DishObjectSpriteGTGE implements IDishObjectSprite {
+public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
+    
+    private DishObject obj;
+    
+    public void setDishObject(DishObject o){
+        obj = o;
+    }
+    
+    public DishObject getDishObject(){
+        return obj;
+    }
 
     @Override
     public Point getPosition() {
@@ -21,7 +33,8 @@ public class DishObjectSpriteGTGE implements IDishObjectSprite {
 
     @Override
     public void setPosition(Point p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setX(p.x);
+        setY(p.y);
     }
 
     @Override

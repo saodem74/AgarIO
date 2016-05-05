@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class Agar extends PrimitiveObject {
+
+    public Agar(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

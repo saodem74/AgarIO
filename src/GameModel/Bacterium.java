@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public class Bacterium extends AliveObject {
+
+    public Bacterium(IDishObjectSprite s) {
+        super(s);
+    }
     
 }

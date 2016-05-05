@@ -22,7 +22,7 @@ public class GameModel {
     }
     
     public void startGame(){
-        
+        dish.createBactery();
     }
     
     public Dish getDish(){

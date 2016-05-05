@@ -8,7 +8,7 @@ package Game;
 import GameModel.*;
 import IModel.*;
 import IView.*;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public abstract class AbstractFabric {
     
-    private Map<DishObject,DishObjectView> createdDishObjects;
+    protected HashMap<DishObject,DishObjectView> createdDishObjects = new HashMap<>();
     
     public abstract DishObject createBactery();
     
@@ -24,7 +24,9 @@ public abstract class AbstractFabric {
     
     public abstract DishObject createPrimitive();
     
-    public abstract DishObjectView getDishObjectView(DishObject model);
+    public DishObjectView getDishObjectView(DishObject model){
+        return createdDishObjects.get(model);
+    }
     
     public abstract CollisionManager createCollisionManager();
     

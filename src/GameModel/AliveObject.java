@@ -5,10 +5,16 @@
  */
 package GameModel;
 
+import IModel.IDishObjectSprite;
+
 /**
  *
  * @author tranhieu
  */
 public abstract class AliveObject extends DishObject {
+
+    public AliveObject(IDishObjectSprite s) {
+        super(s);
+    }
     
 }
