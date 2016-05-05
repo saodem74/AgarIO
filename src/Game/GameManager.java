@@ -7,6 +7,7 @@ package Game;
 
 import GameModel.*;
 import IView.*;
+import java.awt.Graphics2D;
 
 /**
  *
@@ -14,8 +15,8 @@ import IView.*;
  */
 public abstract class GameManager {
     
-    private final int GAME_WIDTH = 800;
-    private final int GAME_HEIGHT = 600;
+    protected final int GAME_WIDTH = 800;
+    protected final int GAME_HEIGHT = 600;
     
     private GameModel model;
     private GameView view;
@@ -23,14 +24,17 @@ public abstract class GameManager {
     public GameManager(AbstractFabric fabric) {
         model = new GameModel(GAME_WIDTH, GAME_HEIGHT);
         view = fabric.createGameView(model);
+    }
+    
+    public void start(){
         model.startGame();
     }
     
-    public void update(){
+    public void update(long l){
         
     }
     
-    public void render(){
+    public void render(Graphics2D g){
         
     }
 }
