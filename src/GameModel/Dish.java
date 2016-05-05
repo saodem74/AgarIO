@@ -5,17 +5,25 @@
  */
 package GameModel;
 
+import Game.AbstractFabric;
+import IModel.CollisionManager;
+
 /**
  *
  * @author tranhieu
  */
 public class Dish {
     
+    AbstractFabric fabric;
+    private CollisionManager collisionManager;
+    
     private int width,height;
     
-    public Dish(int w, int h){
+    public Dish(int w, int h, AbstractFabric f){
         width = w;
         height = h;
+        fabric = f;
+        collisionManager = fabric.createCollisionManager();
     }
     
 }

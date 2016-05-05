@@ -5,6 +5,8 @@
  */
 package GameModel;
 
+import Game.AbstractFabric;
+
 /**
  *
  * @author tranhieu
@@ -13,8 +15,8 @@ public class GameModel {
     
     private Dish dish;
     
-    public GameModel(int width, int height){
-        dish = new Dish(width,height);
+    public GameModel(int width, int height, AbstractFabric fabric){
+        dish = new Dish(width,height,fabric);
     }
     
     public void startGame(){

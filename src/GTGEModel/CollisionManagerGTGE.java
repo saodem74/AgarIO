@@ -13,8 +13,11 @@ import IModel.CollisionManager;
  */
 public class CollisionManagerGTGE extends CollisionManager {
     
-    class CollisionDetectorGTGE {
-        
+    CollisionDetectorGTGE detector;
+    
+    public CollisionManagerGTGE(){
+        super();
+        detector = new CollisionDetectorGTGE(this);
     }
     
 }

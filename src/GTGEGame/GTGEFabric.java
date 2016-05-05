@@ -40,6 +40,7 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public CollisionManager createCollisionManager() {
+        return new CollisionManagerGTGE();
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public abstract class CollisionManager {
     
-    private ArrayList<DishObject> collisionGroup = new ArrayList<>();
+    protected ArrayList<DishObject> collisionGroup = new ArrayList<>();
     
     public void collided(DishObject first, DishObject second){
         
