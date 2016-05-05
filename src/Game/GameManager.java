@@ -24,9 +24,6 @@ public abstract class GameManager {
     public GameManager(AbstractFabric fabric) {
         model = new GameModel(GAME_WIDTH, GAME_HEIGHT,fabric);
         view = fabric.createGameView(model);
-    }
-    
-    public void start(){
         model.startGame();
     }
     

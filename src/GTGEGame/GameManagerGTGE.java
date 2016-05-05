@@ -18,17 +18,12 @@ import java.awt.Graphics2D;
  */
 public class GameManagerGTGE extends GameManager{
     
-    GameLoader game;
+    private GameLoader game;
     
     public GameManagerGTGE(AbstractFabric fabric) {
         super(fabric);
         game = new GameLoader();
         game.setup(new GameGTGE(this), new Dimension(GAME_WIDTH, GAME_HEIGHT), false);
-    }
-    
-    @Override
-    public void start(){
-        super.start();
         game.start();
     }
     

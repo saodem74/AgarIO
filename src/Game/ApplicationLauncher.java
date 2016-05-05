@@ -15,6 +15,5 @@ public class ApplicationLauncher {
     public static void main(String[] args){ 
         AbstractFabric fabric = new GTGEFabric();
         GameManager manager = fabric.createGameManager();
-        manager.start();
     }
 }
