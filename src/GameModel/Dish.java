@@ -7,6 +7,8 @@ package GameModel;
 
 import Game.AbstractFabric;
 import IModel.CollisionManager;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,4 +28,9 @@ public class Dish {
         collisionManager = fabric.createCollisionManager();
     }
     
+    private ArrayList<ActionListener> listeners = new ArrayList<>();
+    
+    public void addListener(ActionListener l){
+        listeners.add(l);
+    }
 }

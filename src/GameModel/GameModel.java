@@ -6,6 +6,8 @@
 package GameModel;
 
 import Game.AbstractFabric;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,5 +23,15 @@ public class GameModel {
     
     public void startGame(){
         
+    }
+    
+    public Dish getDish(){
+        return dish;
+    }
+    
+    private ArrayList<ActionListener> listeners = new ArrayList<>();
+    
+    public void addListener(ActionListener l){
+        listeners.add(l);
     }
 }

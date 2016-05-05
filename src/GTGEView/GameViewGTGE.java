@@ -5,12 +5,19 @@
  */
 package GTGEView;
 
+import Game.AbstractFabric;
+import GameModel.GameModel;
 import IView.GameView;
+import java.awt.event.ActionEvent;
 
 /**
  *
  * @author tranhieu
  */
 public class GameViewGTGE extends GameView {
+
+    public GameViewGTGE(GameModel m, AbstractFabric f) {
+        super(m,f);
+    }
     
 }

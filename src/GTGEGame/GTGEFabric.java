@@ -50,12 +50,12 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public GameView createGameView(GameModel model) {
-        return new GameViewGTGE();
+        return new GameViewGTGE(model,this);
     }
 
     @Override
     public DishView createDishView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DishViewGTGE(this);
     }
 
     @Override
