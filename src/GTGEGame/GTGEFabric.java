@@ -11,12 +11,15 @@ import Game.*;
 import GameModel.*;
 import IModel.*;
 import IView.*;
+import com.golden.gamedev.Game;
 
 /**
  *
  * @author tranhieu
  */
 public class GTGEFabric extends AbstractFabric {
+    
+    private Game game;
 
     @Override
     public DishObject createBactery() {
@@ -26,7 +29,7 @@ public class GTGEFabric extends AbstractFabric {
         sprite.setDishObject(b);
         //create view object
         IDishObjectViewRealization viewR = new DishObjectViewRealizationGTGE(sprite);
-        DishObjectView view = new BacteryView(viewR);
+        DishObjectView view = new BacteryView(viewR,b.getSize());
         b.addListener(view);
         createdDishObjects.put(b, view);
         return b;
@@ -64,7 +67,13 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public GameManager createGameManager() {
-        return new GameManagerGTGE(this);
+        GameManagerGTGE gm = new GameManagerGTGE(this);
+        game = gm.getGameGTGE();
+        return gm;
+    }
+    
+    public Game getGameGTGEObject(){
+        return game;
     }
     
 }

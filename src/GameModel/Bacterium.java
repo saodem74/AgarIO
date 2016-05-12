@@ -15,6 +15,7 @@ public class Bacterium extends AliveObject {
 
     public Bacterium(IDishObjectSprite s) {
         super(s);
+        size = 30;
     }
     
 }

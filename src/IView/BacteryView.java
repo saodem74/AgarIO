@@ -5,19 +5,21 @@
  */
 package IView;
 
+import java.awt.Color;
+
 /**
  *
  * @author tranhieu
  */
 public class BacteryView extends DishObjectView {
 
-    public BacteryView(IDishObjectViewRealization r) {
-        super(r);
+    public BacteryView(IDishObjectViewRealization r, int size) {
+        super(r,size);
     }
 
     @Override
-    public void chooseColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Color chooseColor() {
+        return Color.GREEN;
     }
 
     @Override

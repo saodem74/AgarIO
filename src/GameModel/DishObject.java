@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public abstract class DishObject {
     
-//    private int size;
+    protected int size;
 //    private Point position;
 //    private double speedX;
 //    private double speedY;
@@ -35,5 +35,13 @@ public abstract class DishObject {
     
     public void addListener(ActionListener l){
         listeners.add(l);
+    }
+    
+    public int getSize(){
+        return size;
+    }
+    
+    public void setSize(int size){
+        this.size = size;
     }
 }

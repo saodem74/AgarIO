@@ -5,8 +5,11 @@
  */
 package IView;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -16,15 +19,29 @@ public abstract class DishObjectView implements ActionListener {
     
     private IDishObjectViewRealization realization;
     
-    public DishObjectView(IDishObjectViewRealization r){
+    private final int EDGE_LINE = 2;
+    
+    
+    public DishObjectView(IDishObjectViewRealization r, int size){
         realization = r;
+        realization.setImage(createCircle(size));
     }
     
-    public void render(){
-    
+    private BufferedImage createCircle(int size){
+        BufferedImage bi = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB); 
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setColor(chooseColor().darker().darker());
+        g2d.fillOval(0, 0, size, size);
+        g2d.setColor(chooseColor());
+        g2d.fillOval(EDGE_LINE, EDGE_LINE, size-2*EDGE_LINE, size-2*EDGE_LINE);
+        return bi;
     }
     
-    public abstract void chooseColor();
+    public void render(Graphics2D g){
+        realization.render(g);
+    }
+    
+    public abstract Color chooseColor();
     
     public abstract void choosePicture();
 

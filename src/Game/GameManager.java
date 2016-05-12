@@ -32,6 +32,6 @@ public abstract class GameManager {
     }
     
     public void render(Graphics2D g){
-        
+        view.render(g);
     }
 }

@@ -7,6 +7,7 @@ package IView;
 
 import Game.AbstractFabric;
 import GameModel.GameModel;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,8 +29,8 @@ public abstract class GameView implements ActionListener {
         model.getDish().addListener(dish);
     }
     
-    public void render(){
-        
+    public void render(Graphics2D g){
+        dish.render(g);
     }
     
     @Override

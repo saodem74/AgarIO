@@ -5,10 +5,14 @@
  */
 package IView;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author tranhieu
  */
 public interface IDishObjectViewRealization {
-    
+    public void render(Graphics2D g);
+    public void setImage(BufferedImage bi);
 }

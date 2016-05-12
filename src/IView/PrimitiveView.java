@@ -5,18 +5,20 @@
  */
 package IView;
 
+import java.awt.Color;
+
 /**
  *
  * @author tranhieu
  */
 public class PrimitiveView extends DishObjectView {
 
-    public PrimitiveView(IDishObjectViewRealization r) {
-        super(r);
+    public PrimitiveView(IDishObjectViewRealization r, int size) {
+        super(r,size);
     }
 
     @Override
-    public void chooseColor() {
+    public Color chooseColor() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

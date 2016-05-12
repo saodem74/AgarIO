@@ -5,11 +5,14 @@
  */
 package GTGEView;
 
+import GTGEGame.GTGEFabric;
 import Game.AbstractFabric;
 import IView.DishView;
+import com.golden.gamedev.Game;
+import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.PlayField;
 import com.golden.gamedev.object.background.ImageBackground;
-import java.awt.event.ActionEvent;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
@@ -18,17 +21,23 @@ import java.awt.image.BufferedImage;
  */
 public class DishViewGTGE extends DishView {
 
-    PlayField field;
+    private PlayField field;
+    private GTGEFabric fabric;
     
     public DishViewGTGE(AbstractFabric f) {
         super(f);
+        fabric = (GTGEFabric)f;
         field = new PlayField();
     }
 
     @Override
     public void setBackground(String picture) {
-//        ImageBackground back = new ImageBackground(new BufferedImage());
-//        field.setBackground(back);
+        fabric.getGameGTGEObject().getImage(picture);
+        field.setBackground(null); //TO DO 
+    }
+    
+    public void render(Graphics2D g){
+        field.render(g);
     }
     
 }
