@@ -38,8 +38,8 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
     }
 
     @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(long l) {
+        super.update(l);
     }
 
     @Override

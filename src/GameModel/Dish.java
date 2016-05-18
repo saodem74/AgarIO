@@ -32,6 +32,12 @@ public class Dish {
         collisionManager = fabric.createCollisionManager();
     }
     
+    public void update(long l){
+        for(DishObject obj : objects){
+            obj.update(l);
+        }
+    }
+    
     public int getWidth(){
         return width;
     }

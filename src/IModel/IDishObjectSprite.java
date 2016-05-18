@@ -17,7 +17,7 @@ public interface IDishObjectSprite {
     
     public void setPosition(Point p);
     
-    public void move();
+    public void update(long l);
     
     public void setSpeedX(double dx);
     

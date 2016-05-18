@@ -27,6 +27,10 @@ public abstract class DishObject {
         sprite = s;
     }
     
+    public void update(long l){
+        sprite.update(l);
+    }
+    
     public void setPosition(Point pos){
         sprite.setPosition(pos);
     }

@@ -25,6 +25,10 @@ public class GameModel {
         dish.createBactery();
     }
     
+    public void update(long l){
+        dish.update(l);
+    }
+    
     public Dish getDish(){
         return dish;
     }

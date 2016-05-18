@@ -30,7 +30,7 @@ public abstract class GameManager {
     }
     
     public void update(long l){
-        
+        model.update(l);
     }
     
     public void render(Graphics2D g){
