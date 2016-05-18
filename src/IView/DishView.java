@@ -27,10 +27,16 @@ public abstract class DishView implements ActionListener {
     
     private AbstractFabric fabric;
     
-    public DishView(Dish d, AbstractFabric f) {
+    protected int width;
+    
+    protected int height;
+    
+    public DishView(Dish d, AbstractFabric f, int w, int h) {
         dish = d;
         dish.addListener(this);
         fabric = f;
+        width = w;
+        height = h;
     }
     
     public void render(Graphics2D g){
@@ -48,10 +54,15 @@ public abstract class DishView implements ActionListener {
         mainPlayer = mp;
     }
     
+    protected void addView(DishObjectView v){
+        v.setDish(this);
+        views.add(v);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("object created")){
-            views.add(fabric.getDishObjectView((DishObject)e.getSource()));
+            addView(fabric.getDishObjectView((DishObject)e.getSource()));
         }
     }
 }

@@ -22,10 +22,10 @@ public abstract class GameView implements ActionListener {
     private GameModel model;
     private final String BACKGROUND_PATH = "resources/background.jpg";
     
-    public GameView(GameModel m, AbstractFabric f){
+    public GameView(GameModel m, AbstractFabric f, int w, int h){
         model = m;
         model.addListener(this);
-        dish = f.createDishView(model.getDish());
+        dish = f.createDishView(model.getDish(),w,h);
         dish.setBackground(BACKGROUND_PATH);
     }
     

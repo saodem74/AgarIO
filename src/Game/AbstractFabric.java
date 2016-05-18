@@ -32,9 +32,9 @@ public abstract class AbstractFabric {
     
     public abstract PlayerController createPlayerController(Bacterium b);
     
-    public abstract GameView createGameView(GameModel model);
+    public abstract GameView createGameView(GameModel model, int w, int h);
     
-    public abstract DishView createDishView(Dish dish);
+    public abstract DishView createDishView(Dish dish, int w, int h);
     
     public abstract GameManager createGameManager();
 }

@@ -21,6 +21,7 @@ public abstract class DishObjectView implements ActionListener {
     
     private final int EDGE_LINE = 2;
     
+    private DishView dish;
     
     public DishObjectView(IDishObjectViewRealization r, int size){
         realization = r;
@@ -39,6 +40,11 @@ public abstract class DishObjectView implements ActionListener {
     
     public void render(Graphics2D g){
         realization.render(g);
+    }
+    
+    public void setDish(DishView d){
+        dish = d;
+        realization.useBackground(dish);
     }
     
     public abstract Color chooseColor();

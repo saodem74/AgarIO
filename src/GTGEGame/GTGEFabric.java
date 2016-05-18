@@ -56,13 +56,13 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public GameView createGameView(GameModel model) {
-        return new GameViewGTGE(model,this);
+    public GameView createGameView(GameModel model, int w, int h) {
+        return new GameViewGTGE(model,this,w,h);
     }
 
     @Override
-    public DishView createDishView(Dish dish) {
-        return new DishViewGTGE(dish,this);
+    public DishView createDishView(Dish dish, int w, int h) {
+        return new DishViewGTGE(dish,this,w,h);
     }
 
     @Override

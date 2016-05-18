@@ -6,6 +6,7 @@
 package GTGEView;
 
 import GTGEModel.DishObjectSpriteGTGE;
+import IView.DishView;
 import IView.IDishObjectViewRealization;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -30,6 +31,10 @@ public class DishObjectViewRealizationGTGE implements IDishObjectViewRealization
     @Override
     public void setImage(BufferedImage bi) {
         sprite.setImage(bi);
+    }
+
+    public void useBackground(DishView dish) {
+        sprite.setBackground(((DishViewGTGE)dish).getBackground());
     }
     
 }

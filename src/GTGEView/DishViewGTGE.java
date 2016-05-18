@@ -7,9 +7,10 @@ package GTGEView;
 
 import Game.AbstractFabric;
 import GameModel.Dish;
-import IView.DishView;
+import IView.*;
 import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.PlayField;
+import com.golden.gamedev.object.Sprite;
 import com.golden.gamedev.object.background.ImageBackground;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -26,8 +27,8 @@ public class DishViewGTGE extends DishView {
 
     private PlayField field;
     
-    public DishViewGTGE(Dish d, AbstractFabric f) {
-        super(d,f);
+    public DishViewGTGE(Dish d, AbstractFabric f, int w, int h) {
+        super(d,f,w,h);
         field = new PlayField();
     }
 
@@ -36,13 +37,13 @@ public class DishViewGTGE extends DishView {
         try {
             BufferedImage in = ImageIO.read(new File(picture));
             Background back = new ImageBackground(in);
-            back.setClip(0, 0, dish.getWidth(), dish.getHeight());
             field.setBackground(back);
         } catch (IOException ex) {
             System.err.println("Cannot load background image:");
             System.err.println(ex.getMessage());
-            field.getBackground().setClip(0, 0, dish.getWidth(), dish.getHeight());
         }
+        field.getBackground().setSize(dish.getWidth(), dish.getHeight());
+        field.getBackground().setClip(0, 0, width, height);
     }
     
     @Override
@@ -58,6 +59,15 @@ public class DishViewGTGE extends DishView {
         Point mpPos = mainPlayer.getPosition();
         field.getBackground().setToCenter(mpPos.x,mpPos.y,mainPlayer.getSize(),
                         mainPlayer.getSize());
+    }
+    
+    @Override
+    protected void addView(DishObjectView v){
+        super.addView(v);
+    }
+    
+    public Background getBackground(){
+        return field.getBackground();
     }
     
 }

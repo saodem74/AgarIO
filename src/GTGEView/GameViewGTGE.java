@@ -15,8 +15,8 @@ import IView.GameView;
  */
 public class GameViewGTGE extends GameView {
 
-    public GameViewGTGE(GameModel m, AbstractFabric f) {
-        super(m,f);
+    public GameViewGTGE(GameModel m, AbstractFabric f, int w, int h) {
+        super(m,f,w,h);
     }
     
 }
