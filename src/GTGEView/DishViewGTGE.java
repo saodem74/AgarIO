@@ -5,15 +5,16 @@
  */
 package GTGEView;
 
-import GTGEGame.GTGEFabric;
 import Game.AbstractFabric;
 import IView.DishView;
-import com.golden.gamedev.Game;
 import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.PlayField;
 import com.golden.gamedev.object.background.ImageBackground;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -21,23 +22,32 @@ import java.awt.image.BufferedImage;
  */
 public class DishViewGTGE extends DishView {
 
-    private PlayField field;
-    private GTGEFabric fabric;
+    private PlayField field = new PlayField();
+    private Background back;
     
     public DishViewGTGE(AbstractFabric f) {
         super(f);
-        fabric = (GTGEFabric)f;
-        field = new PlayField();
+//        field = new PlayField();
     }
 
     @Override
     public void setBackground(String picture) {
-        fabric.getGameGTGEObject().getImage(picture);
-        field.setBackground(null); //TO DO 
+        try {
+            BufferedImage in = ImageIO.read(new File(picture));
+            back = new ImageBackground(in);
+            back.setClip(0, 0, 800, 600);
+            field.setBackground(back);
+        } catch (IOException ex) {
+            System.err.println("Cannot load background image:");
+            System.err.println(ex.getMessage());
+            field.setBackground(null);
+        }
     }
     
+    @Override
     public void render(Graphics2D g){
         field.render(g);
+        super.render(g);
     }
     
 }

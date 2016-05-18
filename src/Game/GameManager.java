@@ -15,14 +15,14 @@ import java.awt.Graphics2D;
  */
 public abstract class GameManager {
     
-    protected final int GAME_WIDTH = 800;
-    protected final int GAME_HEIGHT = 600;
+    protected final int GAME_WIDTH = 650;
+    protected final int GAME_HEIGHT = 490;
     
     private GameModel model;
     private GameView view;
     
     public GameManager(AbstractFabric fabric) {
-        model = new GameModel(GAME_WIDTH, GAME_HEIGHT,fabric);
+        model = new GameModel(GAME_WIDTH, GAME_HEIGHT, fabric);
         view = fabric.createGameView(model);
         model.startGame();
     }

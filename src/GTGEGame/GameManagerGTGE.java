@@ -7,10 +7,8 @@ package GTGEGame;
 
 import Game.AbstractFabric;
 import Game.GameManager;
-import com.golden.gamedev.Game;
 import com.golden.gamedev.GameLoader;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 
 /**
  *
@@ -18,19 +16,12 @@ import java.awt.Graphics2D;
  */
 public class GameManagerGTGE extends GameManager{
     
-    private GameGTGE gameGTGE;
-    
     public GameManagerGTGE(AbstractFabric fabric) {
         super(fabric);
         GameLoader game;
         game = new GameLoader();
-        gameGTGE = new GameGTGE(this);
-        game.setup(gameGTGE, new Dimension(GAME_WIDTH, GAME_HEIGHT), false);
+        game.setup(new GameGTGE(this), new Dimension(GAME_WIDTH, GAME_HEIGHT), false);
         game.start();
-    }
-    
-    public GameGTGE getGameGTGE(){
-        return gameGTGE;
     }
     
 }

@@ -19,7 +19,7 @@ public abstract class GameView implements ActionListener {
     
     private DishView dish;
     private GameModel model;
-    private String BACKGROUND_PATH = "resources/background.jpg";
+    private final String BACKGROUND_PATH = "resources/background.jpg";
     
     public GameView(GameModel m, AbstractFabric f){
         model = m;
