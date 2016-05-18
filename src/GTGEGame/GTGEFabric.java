@@ -61,8 +61,8 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public DishView createDishView() {
-        return new DishViewGTGE(this);
+    public DishView createDishView(Dish dish) {
+        return new DishViewGTGE(dish,this);
     }
 
     @Override

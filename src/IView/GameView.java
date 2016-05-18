@@ -24,9 +24,8 @@ public abstract class GameView implements ActionListener {
     public GameView(GameModel m, AbstractFabric f){
         model = m;
         model.addListener(this);
-        dish = f.createDishView();
+        dish = f.createDishView(model.getDish());
         dish.setBackground(BACKGROUND_PATH);
-        model.getDish().addListener(dish);
     }
     
     public void render(Graphics2D g){

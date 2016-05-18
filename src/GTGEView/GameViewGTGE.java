@@ -8,7 +8,6 @@ package GTGEView;
 import Game.AbstractFabric;
 import GameModel.GameModel;
 import IView.GameView;
-import java.awt.event.ActionEvent;
 
 /**
  *

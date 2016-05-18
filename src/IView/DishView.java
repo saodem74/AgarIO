@@ -6,6 +6,7 @@
 package IView;
 
 import Game.AbstractFabric;
+import GameModel.Dish;
 import GameModel.DishObject;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -20,9 +21,13 @@ public abstract class DishView implements ActionListener {
     
     private ArrayList<DishObjectView> views = new ArrayList<>();
     
+    protected Dish dish;
+    
     AbstractFabric fabric;
     
-    public DishView(AbstractFabric f) {
+    public DishView(Dish d, AbstractFabric f) {
+        dish = d;
+        dish.addListener(this);
         fabric = f;
     }
     

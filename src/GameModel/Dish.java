@@ -32,6 +32,14 @@ public class Dish {
         collisionManager = fabric.createCollisionManager();
     }
     
+    public int getWidth(){
+        return width;
+    }
+    
+    public int getHeight(){
+        return height;
+    }
+    
     public void createBactery(){
         DishObject obj = fabric.createBactery();
         addObject(obj,new Point(50,50));

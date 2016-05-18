@@ -20,7 +20,7 @@ public class GameManagerGTGE extends GameManager{
         super(fabric);
         GameLoader game;
         game = new GameLoader();
-        game.setup(new GameGTGE(this), new Dimension(GAME_WIDTH, GAME_HEIGHT), false);
+        game.setup(new GameGTGE(this), new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT), false);
         game.start();
     }
     

@@ -15,8 +15,10 @@ import java.awt.Graphics2D;
  */
 public abstract class GameManager {
     
-    protected final int GAME_WIDTH = 650;
-    protected final int GAME_HEIGHT = 490;
+    protected final int GAME_WIDTH = 2000;
+    protected final int GAME_HEIGHT = 2000;
+    protected final int SCREEN_WIDTH = 800;
+    protected final int SCREEN_HEIGHT = 600;
     
     private GameModel model;
     private GameView view;
