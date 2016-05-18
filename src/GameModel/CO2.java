@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class CO2 extends PrimitiveObject {
 
-    public CO2(IDishObjectSprite s) {
-        super(s);
+    public CO2(Dish d, IDishObjectSprite s) {
+        super(d,s);
     }
     
 }

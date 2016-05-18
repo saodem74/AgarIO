@@ -12,6 +12,7 @@ import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.PlayField;
 import com.golden.gamedev.object.background.ImageBackground;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +49,15 @@ public class DishViewGTGE extends DishView {
     public void render(Graphics2D g){
         field.render(g);
         super.render(g);
+    }
+
+    @Override
+    protected void centerBackground() {
+        if(mainPlayer == null)
+            return;
+        Point mpPos = mainPlayer.getPosition();
+        field.getBackground().setToCenter(mpPos.x,mpPos.y,mainPlayer.getSize(),
+                        mainPlayer.getSize());
     }
     
 }

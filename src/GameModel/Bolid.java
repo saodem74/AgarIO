@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class Bolid extends AliveObject {
 
-    public Bolid(IDishObjectSprite s) {
-        super(s);
+    public Bolid(Dish d,IDishObjectSprite s) {
+        super(d,s);
     }
     
 }

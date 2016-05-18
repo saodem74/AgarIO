@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GTGEModel;
+package IModel;
 
 import GameModel.Bacterium;
-import IModel.PlayerController;
+import GameModel.Controller;
 
 /**
  *
  * @author tranhieu
  */
-public class PlayerControllerGTGE extends PlayerController {
+public abstract class PlayerController extends Controller {
     
-    public PlayerControllerGTGE(Bacterium b) {
+    public PlayerController(Bacterium b) {
         super(b);
     }
     
+    @Override
+    public void update(){
+        
+    }
 }

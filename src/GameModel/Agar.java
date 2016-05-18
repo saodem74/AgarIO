@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class Agar extends PrimitiveObject {
 
-    public Agar(IDishObjectSprite s) {
-        super(s);
+    public Agar(Dish d, IDishObjectSprite s) {
+        super(d, s);
     }
     
 }

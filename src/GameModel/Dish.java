@@ -46,10 +46,11 @@ public class Dish {
         return height;
     }
     
-    public void createBactery(){
-        DishObject obj = fabric.createBactery();
-        addObject(obj,new Point(50,50));
-        obj.setSpeed(0.1, 0.1);
+    public Bacterium createBactery(){
+        Bacterium b = fabric.createBactery(this);
+        addObject(b,new Point(50,50));
+        b.setSpeed(0.1, 0.1);
+        return b;
     }
     
     public void addObject(DishObject obj, Point pos){

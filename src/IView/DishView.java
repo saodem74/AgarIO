@@ -21,9 +21,11 @@ public abstract class DishView implements ActionListener {
     
     private ArrayList<DishObjectView> views = new ArrayList<>();
     
+    protected DishObject mainPlayer;
+    
     protected Dish dish;
     
-    AbstractFabric fabric;
+    private AbstractFabric fabric;
     
     public DishView(Dish d, AbstractFabric f) {
         dish = d;
@@ -32,6 +34,7 @@ public abstract class DishView implements ActionListener {
     }
     
     public void render(Graphics2D g){
+        centerBackground();
         for(DishObjectView obj : views){
             obj.render(g);
         }
@@ -39,6 +42,11 @@ public abstract class DishView implements ActionListener {
     
     public abstract void setBackground(String picture);
     
+    protected abstract void centerBackground();
+    
+    public void setMainPlayer(DishObject mp){
+        mainPlayer = mp;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {

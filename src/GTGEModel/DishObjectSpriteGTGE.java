@@ -20,6 +20,7 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
     
     public void setDishObject(DishObject o){
         obj = o;
+        getBackground().setClip(0, 0, obj.getDish().getWidth(), obj.getDish().getHeight());
     }
     
     public DishObject getDishObject(){
@@ -28,7 +29,7 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
 
     @Override
     public Point getPosition() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Point((int)getX(),(int)getY());
     }
 
     @Override

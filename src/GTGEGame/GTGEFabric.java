@@ -22,10 +22,10 @@ public class GTGEFabric extends AbstractFabric {
     private Game game;
 
     @Override
-    public DishObject createBactery() {
+    public Bacterium createBactery(Dish d) {
         //create model object
         DishObjectSpriteGTGE sprite = new DishObjectSpriteGTGE();
-        Bacterium b = new Bacterium(sprite);
+        Bacterium b = new Bacterium(d,sprite);
         sprite.setDishObject(b);
         //create view object
         IDishObjectViewRealization viewR = new DishObjectViewRealizationGTGE(sprite);
@@ -36,12 +36,12 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public DishObject createBolid() {
+    public DishObject createBolid(Dish d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public DishObject createPrimitive() {
+    public DishObject createPrimitive(Dish d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -51,8 +51,8 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public IPlayerController createPlayerController() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PlayerController createPlayerController(Bacterium b) {
+        return new PlayerControllerGTGE(b);
     }
 
     @Override

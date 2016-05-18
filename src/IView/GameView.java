@@ -6,6 +6,7 @@
 package IView;
 
 import Game.AbstractFabric;
+import GameModel.DishObject;
 import GameModel.GameModel;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -34,6 +35,8 @@ public abstract class GameView implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getActionCommand().equals("main player created")){
+            dish.setMainPlayer((DishObject)e.getSource());
+        }
     }
 }

@@ -18,11 +18,11 @@ public abstract class AbstractFabric {
     
     protected HashMap<DishObject,DishObjectView> createdDishObjects = new HashMap<>();
     
-    public abstract DishObject createBactery();
+    public abstract Bacterium createBactery(Dish d);
     
-    public abstract DishObject createBolid();
+    public abstract DishObject createBolid(Dish d);
     
-    public abstract DishObject createPrimitive();
+    public abstract DishObject createPrimitive(Dish d);
     
     public DishObjectView getDishObjectView(DishObject model){
         return createdDishObjects.get(model);
@@ -30,7 +30,7 @@ public abstract class AbstractFabric {
     
     public abstract CollisionManager createCollisionManager();
     
-    public abstract IPlayerController createPlayerController();
+    public abstract PlayerController createPlayerController(Bacterium b);
     
     public abstract GameView createGameView(GameModel model);
     

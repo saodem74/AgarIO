@@ -9,6 +9,15 @@ package GameModel;
  *
  * @author tranhieu
  */
-public class AIController implements IController {
+public class AIController extends Controller {
+
+    public AIController(Bacterium b) {
+        super(b);
+    }
+
+    @Override
+    public void update() {
+        
+    }
     
 }

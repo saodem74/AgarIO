@@ -23,7 +23,10 @@ public abstract class DishObject {
     
     private IDishObjectSprite sprite;
     
-    public DishObject (IDishObjectSprite s){
+    protected Dish dish;
+    
+    public DishObject (Dish d, IDishObjectSprite s){
+        dish = d;
         sprite = s;
     }
     
@@ -39,10 +42,18 @@ public abstract class DishObject {
         sprite.setPosition(pos);
     }
     
+    public Point getPosition(){
+        return sprite.getPosition();
+    }
+    
     private ArrayList<ActionListener> listeners = new ArrayList<>();
     
     public void addListener(ActionListener l){
         listeners.add(l);
+    }
+    
+    public Dish getDish(){
+        return dish;
     }
     
     public int getSize(){

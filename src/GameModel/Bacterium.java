@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class Bacterium extends AliveObject {
 
-    public Bacterium(IDishObjectSprite s) {
-        super(s);
+    public Bacterium(Dish d, IDishObjectSprite s) {
+        super(d,s);
         size = 30;
     }
     
