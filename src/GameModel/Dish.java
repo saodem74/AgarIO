@@ -49,6 +49,7 @@ public class Dish {
     public void createBactery(){
         DishObject obj = fabric.createBactery();
         addObject(obj,new Point(50,50));
+        obj.setSpeed(0.1, 0.1);
     }
     
     public void addObject(DishObject obj, Point pos){

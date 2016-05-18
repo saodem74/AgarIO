@@ -19,9 +19,7 @@ public interface IDishObjectSprite {
     
     public void update(long l);
     
-    public void setSpeedX(double dx);
-    
-    public void setSpeedY(double dy);
+    public void setSpeed(double dx, double dy);
     
     public double getSpeedX();
     

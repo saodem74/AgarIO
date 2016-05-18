@@ -43,13 +43,8 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
     }
 
     @Override
-    public void setSpeedX(double dx) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setSpeedY(double dy) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setSpeed(double dx, double dy) {
+        super.setSpeed(dx, dy);
     }
 
     @Override

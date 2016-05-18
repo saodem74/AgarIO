@@ -31,6 +31,10 @@ public abstract class DishObject {
         sprite.update(l);
     }
     
+    public void setSpeed(double dx, double dy){
+        sprite.setSpeed(dx, dy);
+    }
+    
     public void setPosition(Point pos){
         sprite.setPosition(pos);
     }
