@@ -56,6 +56,7 @@ public class Dish {
     public void addObject(DishObject obj, Point pos){
         obj.setPosition(pos);
         objects.add(obj);
+        collisionManager.addObject(obj);
         fireObjectCreated(obj);
     }
     

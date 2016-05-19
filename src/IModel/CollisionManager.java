@@ -21,7 +21,7 @@ public abstract class CollisionManager {
     }
     
     public void addObject(DishObject obj){
-        
+        collisionGroup.add(obj);
     }
     
     public void removeObject(DishObject obj){

@@ -5,7 +5,9 @@
  */
 package GTGEModel;
 
+import GameModel.DishObject;
 import IModel.CollisionManager;
+import com.golden.gamedev.object.SpriteGroup;
 
 /**
  *
@@ -13,11 +15,20 @@ import IModel.CollisionManager;
  */
 public class CollisionManagerGTGE extends CollisionManager {
     
-    CollisionDetectorGTGE detector;
+    private CollisionDetectorGTGE detector;
+    
+    private SpriteGroup s;
     
     public CollisionManagerGTGE(){
         super();
-        detector = new CollisionDetectorGTGE(this);
+        s = new SpriteGroup("sprites");
+        detector = new CollisionDetectorGTGE(this,s);
+    }
+    
+    @Override
+    public void addObject(DishObject obj){
+        super.addObject(obj);
+//        s.add(obj.);
     }
     
 }

@@ -6,6 +6,7 @@
 package GTGEModel;
 
 import com.golden.gamedev.object.Sprite;
+import com.golden.gamedev.object.SpriteGroup;
 import com.golden.gamedev.object.collision.BasicCollisionGroup;
 
 /**
@@ -16,8 +17,10 @@ public class CollisionDetectorGTGE extends BasicCollisionGroup {
 
     private CollisionManagerGTGE manager;
     
-    public CollisionDetectorGTGE(CollisionManagerGTGE manager){
+    public CollisionDetectorGTGE(CollisionManagerGTGE manager, SpriteGroup sg){
         super();
+        setCollisionGroup(sg, sg);
+        pixelPerfectCollision = true;
         this.manager = manager;
     }
     
