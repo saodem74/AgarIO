@@ -34,6 +34,9 @@ public class GameModel {
     }
     
     public void update(long l){
+        for(Controller p : players){
+            p.update();
+        }
         dish.update(l);
     }
     

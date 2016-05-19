@@ -11,12 +11,16 @@ package GameModel;
  */
 public abstract class Controller {
     
-    private Bacterium bact;
+    protected Bacterium bact;
     
     public Controller(Bacterium b){
         bact = b;
     }
     
-    public abstract void update();
+    public void update(){
+        defineDirection();
+    }
+    
+    public abstract void defineDirection();
     
 }

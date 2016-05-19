@@ -34,5 +34,12 @@ public class GameGTGE extends Game {
     public void render(Graphics2D gd) {
         manager.render(gd);
     }
+    
+    public int getbsInputX(){
+        return this.bsInput.getMouseX();
+    }
 
+    public int getbsInputY(){
+        return this.bsInput.getMouseY();
+    }
 }

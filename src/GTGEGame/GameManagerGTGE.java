@@ -16,12 +16,20 @@ import java.awt.Dimension;
  */
 public class GameManagerGTGE extends GameManager{
     
+    private GameGTGE gamegtge;
+    
     public GameManagerGTGE(AbstractFabric fabric) {
         super(fabric);
         GameLoader game;
         game = new GameLoader();
-        game.setup(new GameGTGE(this), new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT), false);
+        gamegtge = new GameGTGE(this);
+        ((GTGEFabric)fabric).setGameGTGEObject(gamegtge);
+        game.setup(gamegtge, new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT), false);
         game.start();
+    }
+    
+    public GameGTGE getGameGTGE(){
+        return gamegtge;
     }
     
 }

@@ -12,6 +12,7 @@ import GameModel.*;
 import IModel.*;
 import IView.*;
 import com.golden.gamedev.Game;
+import com.golden.gamedev.object.Background;
 
 /**
  *
@@ -20,6 +21,7 @@ import com.golden.gamedev.Game;
 public class GTGEFabric extends AbstractFabric {
     
     private Game game;
+    private DishViewGTGE dishView;
 
     @Override
     public Bacterium createBactery(Dish d) {
@@ -52,7 +54,9 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public PlayerController createPlayerController(Bacterium b) {
-        return new PlayerControllerGTGE(b);
+        PlayerControllerGTGE pc = new PlayerControllerGTGE(b,this);
+//        pc.setBackground(dishView.getBackground());
+        return pc;
     }
 
     @Override
@@ -62,16 +66,27 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public DishView createDishView(Dish dish, int w, int h) {
-        return new DishViewGTGE(dish,this,w,h);
+        dishView = new DishViewGTGE(dish,this,w,h);
+        return dishView;
     }
 
     @Override
     public GameManager createGameManager() {
-        return new GameManagerGTGE(this);
+        GameManagerGTGE gm = new GameManagerGTGE(this);
+        game = gm.getGameGTGE();
+        return gm;
     }
     
     public Game getGameGTGEObject(){
         return game;
+    }
+    
+    public void setGameGTGEObject(Game g){
+        game = g;
+    }
+    
+    public Background getBackground(){
+        return dishView.getBackground();
     }
     
 }

@@ -16,7 +16,7 @@ public class AIController extends Controller {
     }
 
     @Override
-    public void update() {
+    public void defineDirection() {
         
     }
     
