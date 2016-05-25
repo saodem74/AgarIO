@@ -15,5 +15,5 @@ import java.awt.image.BufferedImage;
 public interface IDishObjectViewRealization {
     public void render(Graphics2D g);
     public void setImage(BufferedImage bi);
-    public void useBackground(DishView dish);
+    public void setDish(DishView dish);
 }

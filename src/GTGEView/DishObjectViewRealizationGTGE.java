@@ -33,7 +33,7 @@ public class DishObjectViewRealizationGTGE implements IDishObjectViewRealization
         sprite.setImage(bi);
     }
 
-    public void useBackground(DishView dish) {
+    public void setDish(DishView dish) {
         sprite.setBackground(((DishViewGTGE)dish).getBackground());
     }
     

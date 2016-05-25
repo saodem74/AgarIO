@@ -22,6 +22,7 @@ public class GTGEFabric extends AbstractFabric {
     
     private Game game;
     private DishViewGTGE dishView;
+    private PlayerControllerGTGE controller;
 
     @Override
     public Bacterium createBactery(Dish d) {
@@ -54,9 +55,9 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public PlayerController createPlayerController(Bacterium b) {
-        PlayerControllerGTGE pc = new PlayerControllerGTGE(b,this);
-//        pc.setBackground(dishView.getBackground());
-        return pc;
+        controller = new PlayerControllerGTGE(b,this);
+        controller.setBackground(dishView.getBackground());
+        return controller;
     }
 
     @Override
@@ -73,7 +74,6 @@ public class GTGEFabric extends AbstractFabric {
     @Override
     public GameManager createGameManager() {
         GameManagerGTGE gm = new GameManagerGTGE(this);
-        game = gm.getGameGTGE();
         return gm;
     }
     
@@ -83,6 +83,9 @@ public class GTGEFabric extends AbstractFabric {
     
     public void setGameGTGEObject(Game g){
         game = g;
+        if(controller != null){
+            controller.setGame(g);
+        }
     }
     
     public Background getBackground(){

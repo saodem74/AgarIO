@@ -18,6 +18,8 @@ import com.golden.gamedev.object.Background;
 public class PlayerControllerGTGE extends PlayerController {
     
     GTGEFabric fabric;
+    Game game;
+    Background background;
     
     public PlayerControllerGTGE(Bacterium b, GTGEFabric f) {
         super(b);
@@ -26,12 +28,20 @@ public class PlayerControllerGTGE extends PlayerController {
 
     @Override
     public void defineDirection() {
-        int mouseX = fabric.getGameGTGEObject().getMouseX()+(int)fabric.getBackground().getX();
-        int mouseY = fabric.getGameGTGEObject().getMouseY()+(int)fabric.getBackground().getY();
+        int mouseX = game.getMouseX()+(int)background.getX();
+        int mouseY = game.getMouseY()+(int)background.getY();
         double speed = 0.5;
         double dx = (mouseX-bact.getPosition().x > 0) ? 0.1 : -0.1;
         double dy = (mouseY-bact.getPosition().y > 0) ? 0.1 : -0.1;
         bact.setSpeed(dx,dy);
+    }
+    
+    public void setGame(Game g){
+        game = g;
+    }
+    
+    public void setBackground(Background b){
+        background = b;
     }
     
 }

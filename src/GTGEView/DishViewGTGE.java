@@ -69,11 +69,4 @@ public class DishViewGTGE extends DishView {
     public Background getBackground(){
         return field.getBackground();
     }
-    
-    public int getBackgroundX(){
-        return (int) this.getBackground().getX();
-    }
-    public int getBackgroundY(){
-        return (int) this.getBackground().getY();
-    }
 }

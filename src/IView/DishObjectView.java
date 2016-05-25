@@ -44,7 +44,7 @@ public abstract class DishObjectView implements ActionListener {
     
     public void setDish(DishView d){
         dish = d;
-        realization.useBackground(dish);
+        realization.setDish(dish);
     }
     
     public abstract Color chooseColor();

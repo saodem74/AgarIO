@@ -20,7 +20,6 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
     
     public void setDishObject(DishObject o){
         obj = o;
-        getBackground().setClip(0, 0, obj.getDish().getWidth(), obj.getDish().getHeight());
     }
     
     public DishObject getDishObject(){
