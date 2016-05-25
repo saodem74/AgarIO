@@ -30,10 +30,9 @@ public class PlayerControllerGTGE extends PlayerController {
     public void defineDirection() {
         int mouseX = game.getMouseX()+(int)background.getX();
         int mouseY = game.getMouseY()+(int)background.getY();
-        double speed = 0.5;
-        double dx = (mouseX-bact.getPosition().x > 0) ? 0.1 : -0.1;
-        double dy = (mouseY-bact.getPosition().y > 0) ? 0.1 : -0.1;
-        bact.setSpeed(dx,dy);
+        double dx = mouseX-bact.getPosition().x;
+        double dy = mouseY-bact.getPosition().y;
+        bact.setDirection(dx,dy);
     }
     
     public void setGame(Game g){

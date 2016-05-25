@@ -17,6 +17,4 @@ public abstract class PlayerController extends Controller {
     public PlayerController(Bacterium b) {
         super(b);
     }
-    @Override
-    public abstract void defineDirection();
 }

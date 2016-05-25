@@ -50,14 +50,12 @@ public class Dish {
     public Bacterium createBactery(){
         Bacterium b = fabric.createBactery(this);
         addObject(b,new Point(50,50));
-        b.setSpeed(0.1, 0.1);
         return b;
     }
     
     public Bacterium createBactery(Point pos){
         Bacterium b = fabric.createBactery(this);
         addObject(b,pos);
-        b.setSpeed(0, 0);
         return b;
     }
     

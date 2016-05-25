@@ -17,9 +17,8 @@ import java.util.ArrayList;
 public abstract class DishObject {
     
     protected int size;
-//    private Point position;
-//    private double speedX;
-//    private double speedY;
+
+    private final double SPEED_COEFFICIENT = 20/3;
     
     private IDishObjectSprite sprite;
     
@@ -34,7 +33,20 @@ public abstract class DishObject {
         sprite.update(l);
     }
     
-    public void setSpeed(double dx, double dy){
+    public void setDirection(double x, double y){
+        double dx,dy;
+        double max = Math.max(Math.abs(x), Math.abs(y));
+        if(max>0){
+            dx = x/max*SPEED_COEFFICIENT;
+            dy = y/max*SPEED_COEFFICIENT;
+        }
+        else {
+            dx = dy = 0;
+        }
+        setSpeed(dx/size,dy/size);
+    }
+    
+    private void setSpeed(double dx, double dy){
         sprite.setSpeed(dx, dy);
     }
     

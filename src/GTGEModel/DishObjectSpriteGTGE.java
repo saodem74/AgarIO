@@ -28,13 +28,13 @@ public class DishObjectSpriteGTGE extends Sprite implements IDishObjectSprite {
 
     @Override
     public Point getPosition() {
-        return new Point((int)getX(),(int)getY());
+        return new Point((int)getX()+obj.getSize()/2,(int)getY()+obj.getSize()/2);
     }
 
     @Override
     public void setPosition(Point p) {
-        setX(p.x);
-        setY(p.y);
+        setX(p.x-obj.getSize()/2);
+        setY(p.y-obj.getSize()/2);
     }
 
     @Override
