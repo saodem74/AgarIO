@@ -34,7 +34,7 @@ public abstract class AbstractFabric {
     
     public abstract GameView createGameView(GameModel model, int w, int h);
     
-    public abstract DishView createDishView(Dish dish, int w, int h);
+    public abstract DishView createDishView(Dish dish, int w, int h, String background);
     
     public abstract GameManager createGameManager();
 }

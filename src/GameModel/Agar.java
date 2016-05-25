@@ -16,5 +16,10 @@ public class Agar extends PrimitiveObject {
     public Agar(Dish d, IDishObjectSprite s) {
         super(d, s);
     }
+
+    @Override
+    public boolean collideWith(DishObject o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

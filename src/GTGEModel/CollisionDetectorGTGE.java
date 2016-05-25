@@ -25,8 +25,10 @@ public class CollisionDetectorGTGE extends BasicCollisionGroup {
     }
     
     @Override
-    public void collided(Sprite sprite, Sprite sprite1) {
-        
+    public void collided(Sprite sprite1, Sprite sprite2) {
+        DishObjectSpriteGTGE s1 = (DishObjectSpriteGTGE)sprite1;
+        DishObjectSpriteGTGE s2 = (DishObjectSpriteGTGE)sprite2;
+        manager.collided(s1.getDishObject(), s2.getDishObject());
     }
     
 }

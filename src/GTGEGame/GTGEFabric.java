@@ -13,6 +13,7 @@ import IModel.*;
 import IView.*;
 import com.golden.gamedev.Game;
 import com.golden.gamedev.object.Background;
+import java.util.HashMap;
 
 /**
  *
@@ -23,6 +24,9 @@ public class GTGEFabric extends AbstractFabric {
     private Game game;
     private DishViewGTGE dishView;
     private PlayerControllerGTGE controller;
+    private CollisionManagerGTGE collisionManager;
+    
+    private HashMap<DishObject,DishObjectSpriteGTGE> realizations = new HashMap<>();
 
     @Override
     public Bacterium createBactery(Dish d) {
@@ -35,6 +39,7 @@ public class GTGEFabric extends AbstractFabric {
         DishObjectView view = new BacteryView(viewR,b.getSize());
         b.addListener(view);
         createdDishObjects.put(b, view);
+        realizations.put(b, sprite);
         return b;
     }
 
@@ -50,7 +55,8 @@ public class GTGEFabric extends AbstractFabric {
 
     @Override
     public CollisionManager createCollisionManager() {
-        return new CollisionManagerGTGE();
+        collisionManager = new CollisionManagerGTGE(this);
+        return collisionManager;
     }
 
     @Override
@@ -66,8 +72,10 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public DishView createDishView(Dish dish, int w, int h) {
+    public DishView createDishView(Dish dish, int w, int h, String background) {
         dishView = new DishViewGTGE(dish,this,w,h);
+        dishView.setBackground(background);
+        collisionManager.setBackground(dishView.getBackground());
         return dishView;
     }
 
@@ -92,4 +100,7 @@ public class GTGEFabric extends AbstractFabric {
         return dishView.getBackground();
     }
     
+    public DishObjectSpriteGTGE getSprite(DishObject obj){
+        return realizations.get(obj);
+    }
 }

@@ -6,6 +6,7 @@
 package GameModel;
 
 import Game.AbstractFabric;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class GameModel {
         Bacterium b = dish.createBactery();
         players.add(fabric.createPlayerController(b));
         fireMainPlayerCreated(b);
+        dish.createBactery(new Point(200,200));
     }
     
     public void update(long l){

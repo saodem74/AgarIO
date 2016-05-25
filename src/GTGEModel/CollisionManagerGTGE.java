@@ -5,8 +5,10 @@
  */
 package GTGEModel;
 
+import GTGEGame.GTGEFabric;
 import GameModel.DishObject;
 import IModel.CollisionManager;
+import com.golden.gamedev.object.Background;
 import com.golden.gamedev.object.SpriteGroup;
 
 /**
@@ -19,8 +21,11 @@ public class CollisionManagerGTGE extends CollisionManager {
     
     private SpriteGroup s;
     
-    public CollisionManagerGTGE(){
+    private GTGEFabric fabric;
+    
+    public CollisionManagerGTGE(GTGEFabric f){
         super();
+        fabric = f;
         s = new SpriteGroup("sprites");
         detector = new CollisionDetectorGTGE(this,s);
     }
@@ -28,7 +33,16 @@ public class CollisionManagerGTGE extends CollisionManager {
     @Override
     public void addObject(DishObject obj){
         super.addObject(obj);
-//        s.add(obj.);
+        s.add(fabric.getSprite(obj));
+    }
+    
+    public void setBackground(Background b){
+        s.setBackground(b);
+    }
+
+    @Override
+    public void update() {
+        detector.checkCollision();
     }
     
 }

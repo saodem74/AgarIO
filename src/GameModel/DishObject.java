@@ -63,4 +63,6 @@ public abstract class DishObject {
     public void setSize(int size){
         this.size = size;
     }
+    
+    public abstract boolean collideWith(DishObject o);
 }

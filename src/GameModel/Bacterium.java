@@ -17,5 +17,10 @@ public class Bacterium extends AliveObject {
         super(d,s);
         size = 30;
     }
+
+    @Override
+    public boolean collideWith(DishObject o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
