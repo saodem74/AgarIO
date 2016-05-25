@@ -35,7 +35,7 @@ public abstract class GameView implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("main player created")){
+        if(e.getID() == 1){ //main player created
             dish.setMainPlayer((DishObject)e.getSource());
         }
     }
