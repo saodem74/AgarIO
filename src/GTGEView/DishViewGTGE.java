@@ -61,11 +61,6 @@ public class DishViewGTGE extends DishView {
                         mainPlayer.getSize());
     }
     
-    @Override
-    protected void addView(DishObjectView v){
-        super.addView(v);
-    }
-    
     public Background getBackground(){
         return field.getBackground();
     }

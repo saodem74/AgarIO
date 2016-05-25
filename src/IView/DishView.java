@@ -59,10 +59,17 @@ public abstract class DishView implements ActionListener {
         views.add(v);
     }
     
+    protected void removeView(DishObjectView v){
+        views.remove(v);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("object created")){
             addView(fabric.getDishObjectView((DishObject)e.getSource()));
+        }
+        else if(e.getActionCommand().equals("object removed")){
+            removeView(fabric.getDishObjectView((DishObject)e.getSource()));
         }
     }
 }

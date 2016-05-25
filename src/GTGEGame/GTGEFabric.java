@@ -27,6 +27,12 @@ public class GTGEFabric extends AbstractFabric {
     private CollisionManagerGTGE collisionManager;
     
     private HashMap<DishObject,DishObjectSpriteGTGE> realizations = new HashMap<>();
+    
+    @Override
+    public void removeObject(DishObject obj){
+        super.removeObject(obj);
+        realizations.remove(obj);
+    }
 
     @Override
     public Bacterium createBactery(Dish d) {

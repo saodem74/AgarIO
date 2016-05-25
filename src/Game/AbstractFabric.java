@@ -28,6 +28,10 @@ public abstract class AbstractFabric {
         return createdDishObjects.get(model);
     }
     
+    public void removeObject(DishObject obj){
+        createdDishObjects.remove(obj);
+    }
+    
     public abstract CollisionManager createCollisionManager();
     
     public abstract PlayerController createPlayerController(Bacterium b);

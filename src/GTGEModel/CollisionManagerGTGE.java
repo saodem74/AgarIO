@@ -36,6 +36,12 @@ public class CollisionManagerGTGE extends CollisionManager {
         s.add(fabric.getSprite(obj));
     }
     
+    @Override
+    public void removeObject(DishObject obj){
+        super.removeObject(obj);
+        s.remove(fabric.getSprite(obj));
+    }
+    
     public void setBackground(Background b){
         s.setBackground(b);
     }

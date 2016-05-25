@@ -6,7 +6,6 @@
 package IModel;
 
 import GameModel.*;
-import java.awt.Point;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +31,7 @@ public abstract class CollisionManager {
     }
     
     public void removeObject(DishObject obj){
-        
+        collisionGroup.remove(obj);
     }
     
     public abstract void update();

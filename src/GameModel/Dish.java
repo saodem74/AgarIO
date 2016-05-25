@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class Dish {
     
-    AbstractFabric fabric;
+    private AbstractFabric fabric;
     private CollisionManager collisionManager;
     
     private int width,height;
@@ -68,6 +68,13 @@ public class Dish {
         fireObjectCreated(obj);
     }
     
+    public void removeObject(DishObject obj){
+        objects.remove(obj);
+        collisionManager.removeObject(obj);
+        fireObjectRemoved(obj);
+        fabric.removeObject(obj);
+    }
+    
     private ArrayList<ActionListener> listeners = new ArrayList<>();
     
     public void addListener(ActionListener l){
@@ -76,6 +83,13 @@ public class Dish {
     
     private void fireObjectCreated(DishObject obj){
         ActionEvent event = new ActionEvent(obj,1,"object created");
+        for(ActionListener l : listeners){
+            l.actionPerformed(event);
+        }
+    }
+    
+    private void fireObjectRemoved(DishObject obj){
+        ActionEvent event = new ActionEvent(obj,2,"object removed");
         for(ActionListener l : listeners){
             l.actionPerformed(event);
         }
