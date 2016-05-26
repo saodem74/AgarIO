@@ -23,6 +23,14 @@ public class GameModel {
     
     private final int PRIMITIVES_START_COUNT = 20;
     
+    private final double EMERGENCE_OF_NEW_BACTERY_CHANCE = 0.02;
+    
+    private final int PLAYER_SIZE_DIFFERENCE = 40;
+    
+    private final double EMERGENCE_OF_PRIMITIVES_CHANCE = 0.05;
+    
+    private final int EMERGING_PRIMITIVES_COUNT = 5;
+    
     private Dish dish;
     
     private AbstractFabric fabric;
@@ -44,6 +52,7 @@ public class GameModel {
         Bacterium b = dish.createBactery(PLAYER_START_SIZE);
         players.add(fabric.createPlayerController(b));
         fireMainPlayerCreated(b);
+        //create other players
         int bactNumber = (int)(Math.random()* PLAYERS_START_COUNT);
         for(int i=0; i<bactNumber; i++){
             createAIPlayer(PLAYER_START_SIZE);
@@ -59,6 +68,12 @@ public class GameModel {
     public void update(long l){
         for(Controller p : players){
             p.update();
+        }
+        if(Math.random() < EMERGENCE_OF_NEW_BACTERY_CHANCE){
+            createAIPlayer(PLAYER_START_SIZE + (int)(Math.random()*PLAYER_SIZE_DIFFERENCE));
+        }
+        if(Math.random() < EMERGENCE_OF_PRIMITIVES_CHANCE){
+            dish.createBasicPrimitives((int) (Math.random()*EMERGING_PRIMITIVES_COUNT));
         }
         dish.update(l);
     }
