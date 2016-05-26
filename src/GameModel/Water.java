@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class Water extends PrimitiveObject {
 
-    public Water(Dish d, IDishObjectSprite s) {
-        super(d,s);
+    public Water(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
 
     @Override

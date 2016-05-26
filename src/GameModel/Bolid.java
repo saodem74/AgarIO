@@ -13,10 +13,10 @@ import IModel.IDishObjectSprite;
  */
 public class Bolid extends AliveObject {
 
-    public Bolid(Dish d,IDishObjectSprite s) {
-        super(d,s);
+    public Bolid(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
-
+    
     @Override
     public boolean collideWith(DishObject o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -24,9 +24,10 @@ public abstract class DishObject {
     
     protected Dish dish;
     
-    public DishObject (Dish d, IDishObjectSprite s){
+    public DishObject (Dish d, IDishObjectSprite s, int size){
         dish = d;
         sprite = s;
+        this.size = size;
     }
     
     public void update(long l){

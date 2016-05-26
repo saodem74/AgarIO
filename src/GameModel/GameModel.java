@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class GameModel {
     
+    private final int PLAYER_START_SIZE = 40;
+    
+    private final int PLAYERS_START_COUNT = 20;
+    
     private Dish dish;
     
     private AbstractFabric fabric;
@@ -29,10 +33,24 @@ public class GameModel {
     }
     
     public void startGame(){
-        Bacterium b = dish.createBactery();
+        createPlayers();
+    }
+    
+    private void createPlayers(){
+        //create main player
+        Bacterium b = dish.createBactery(PLAYER_START_SIZE);
         players.add(fabric.createPlayerController(b));
         fireMainPlayerCreated(b);
-        dish.createBactery(new Point(200,200));
+        int bactNumber = (int)(Math.random()* PLAYERS_START_COUNT);
+        for(int i=0; i<bactNumber; i++){
+            createAIPlayer(PLAYER_START_SIZE);
+        }
+    }
+    
+    private void createAIPlayer(int size){
+        Bacterium b = dish.createBactery(size);
+        AIController ai = new AIController(b);
+        players.add(ai);
     }
     
     public void update(long l){

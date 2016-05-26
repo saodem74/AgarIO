@@ -13,11 +13,10 @@ import IModel.IDishObjectSprite;
  */
 public class Bacterium extends AliveObject {
 
-    public Bacterium(Dish d, IDishObjectSprite s) {
-        super(d,s);
-        size = 30;
+    public Bacterium(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
-
+    
     @Override
     public boolean collideWith(DishObject o) {
         dish.removeObject(o);

@@ -18,11 +18,11 @@ public abstract class AbstractFabric {
     
     protected HashMap<DishObject,DishObjectView> createdDishObjects = new HashMap<>();
     
-    public abstract Bacterium createBactery(Dish d);
+    public abstract Bacterium createBactery(Dish d, int size);
     
-    public abstract DishObject createBolid(Dish d);
+    public abstract DishObject createBolid(Dish d, int size);
     
-    public abstract DishObject createPrimitive(Dish d);
+    public abstract DishObject createPrimitive(Dish d, int size);
     
     public DishObjectView getDishObjectView(DishObject model){
         return createdDishObjects.get(model);

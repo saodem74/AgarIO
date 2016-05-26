@@ -47,14 +47,16 @@ public class Dish {
         return height;
     }
     
-    public Bacterium createBactery(){
-        Bacterium b = fabric.createBactery(this);
-        addObject(b,new Point(50,50));
+    public Bacterium createBactery(int size){
+        Bacterium b = fabric.createBactery(this,size);
+        //get random position
+        Point rp = new Point((int)(Math.random()*width),(int)(Math.random()*height));
+        addObject(b,rp);
         return b;
     }
     
-    public Bacterium createBactery(Point pos){
-        Bacterium b = fabric.createBactery(this);
+    public Bacterium createBactery(int size, Point pos){
+        Bacterium b = fabric.createBactery(this,size);
         addObject(b,pos);
         return b;
     }

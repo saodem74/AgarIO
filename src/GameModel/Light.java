@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public class Light extends PrimitiveObject {
 
-    public Light(Dish d, IDishObjectSprite s) {
-        super(d,s);
+    public Light(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
 
     @Override

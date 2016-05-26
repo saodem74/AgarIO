@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public abstract class AliveObject extends DishObject {
 
-    public AliveObject(Dish d, IDishObjectSprite s) {
-        super(d,s);
+    public AliveObject(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
-    
+
 }

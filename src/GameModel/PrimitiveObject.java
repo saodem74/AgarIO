@@ -13,8 +13,8 @@ import IModel.IDishObjectSprite;
  */
 public abstract class PrimitiveObject extends DishObject {
 
-    public PrimitiveObject(Dish d, IDishObjectSprite s) {
-        super(d,s);
+    public PrimitiveObject(Dish d, IDishObjectSprite s, int size) {
+        super(d, s, size);
     }
     
 }
