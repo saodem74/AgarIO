@@ -19,7 +19,7 @@ public abstract class Specialization {
     /**
      * Рационы, относящиеся к текущей специализации
      */
-    protected ArrayList <Ration> rations;
+    protected ArrayList <Ration> rations = new ArrayList<>();
     
     public String getType(){
         return this.getClass().getSimpleName();

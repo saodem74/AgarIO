@@ -6,6 +6,7 @@
 package GameModel;
 
 import Game.AbstractFabric;
+import GameModel.specializations.Specialization;
 import IModel.CollisionManager;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -51,16 +52,16 @@ public class Dish {
         return new Point((int)(Math.random()*width),(int)(Math.random()*height));
     }
     
-    public Bacterium createBactery(int size){
-        Bacterium b = fabric.createBactery(this,size);
+    public Bacterium createBactery(int size, Specialization spec){
+        Bacterium b = fabric.createBactery(this,size,spec);
         //get random position
         Point rp = getRandomPosition();
         addObject(b,rp);
         return b;
     }
     
-    public Bacterium createBactery(int size, Point pos){
-        Bacterium b = fabric.createBactery(this,size);
+    public Bacterium createBactery(int size, Specialization spec, Point pos){
+        Bacterium b = fabric.createBactery(this,size,spec);
         addObject(b,pos);
         return b;
     }

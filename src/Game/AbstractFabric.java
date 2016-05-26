@@ -7,6 +7,7 @@ package Game;
 
 import GameModel.*;
 import GameModel.primitives.*;
+import GameModel.specializations.Specialization;
 import IModel.*;
 import IView.*;
 import java.util.HashMap;
@@ -19,8 +20,8 @@ public abstract class AbstractFabric {
     
     protected HashMap<DishObject,DishObjectView> createdDishObjects = new HashMap<>();
     
-    public Bacterium createBactery(Dish d, int size){
-        Bacterium b = new Bacterium(d,size);
+    public Bacterium createBactery(Dish d, int size, Specialization s){
+        Bacterium b = new Bacterium(d,size,s);
         createDishObject(b,new BacteryView(b));
         return b;
     }

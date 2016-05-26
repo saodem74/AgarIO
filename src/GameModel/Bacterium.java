@@ -15,8 +15,9 @@ public class Bacterium extends DishObject {
     
     private Specialization spec;
 
-    public Bacterium(Dish d, int size) {
+    public Bacterium(Dish d, int size, Specialization s) {
         super(d, size);
+        spec = s;
     }
     
     @Override
