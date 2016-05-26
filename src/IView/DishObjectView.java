@@ -32,10 +32,10 @@ public abstract class DishObjectView implements ActionListener {
     
     public void setRealization(IDishObjectViewRealization r){
         realization = r;
-        realization.setImage(createCircle(object.getSize()));
+        realization.setImage(paint());
     }
     
-    private BufferedImage createCircle(int size){
+    private BufferedImage drawCircle(int size){
         BufferedImage bi = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB); 
         Graphics2D g2d = bi.createGraphics();
         g2d.setColor(chooseColor().darker().darker());
@@ -43,6 +43,10 @@ public abstract class DishObjectView implements ActionListener {
         g2d.setColor(chooseColor());
         g2d.fillOval(EDGE_LINE, EDGE_LINE, size-2*EDGE_LINE, size-2*EDGE_LINE);
         return bi;
+    }
+    
+    protected BufferedImage paint(){
+        return drawCircle(object.getSize());
     }
     
     public void render(Graphics2D g){
