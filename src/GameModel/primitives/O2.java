@@ -7,7 +7,6 @@ package GameModel.primitives;
 
 import GameModel.Dish;
 import GameModel.DishObject;
-import IModel.IDishObjectSprite;
 
 /**
  *
@@ -15,8 +14,8 @@ import IModel.IDishObjectSprite;
  */
 public class O2 extends PrimitiveObject {
 
-    public O2(Dish d, IDishObjectSprite s) {
-        super(d, s);
+    public O2(Dish d) {
+        super(d);
     }
 
     @Override

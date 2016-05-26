@@ -7,7 +7,6 @@ package GameModel.primitives;
 
 import GameModel.Dish;
 import GameModel.DishObject;
-import IModel.IDishObjectSprite;
 
 /**
  *
@@ -15,8 +14,8 @@ import IModel.IDishObjectSprite;
  */
 public abstract class PrimitiveObject extends DishObject {
     
-    public PrimitiveObject(Dish d, IDishObjectSprite s) {
-        super(d, s, 15); //basic size
+    public PrimitiveObject(Dish d) {
+        super(d, 15); //basic size
     }
     
 }

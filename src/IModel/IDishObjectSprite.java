@@ -5,6 +5,7 @@
  */
 package IModel;
 
+import GameModel.DishObject;
 import java.awt.Point;
 
 /**
@@ -12,6 +13,8 @@ import java.awt.Point;
  * @author tranhieu
  */
 public interface IDishObjectSprite {
+    
+    public void setDishObject(DishObject o);
     
     public Point getPosition();
     

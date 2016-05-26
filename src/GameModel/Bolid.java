@@ -5,16 +5,14 @@
  */
 package GameModel;
 
-import IModel.IDishObjectSprite;
-
 /**
  *
  * @author tranhieu
  */
-public class Bolid extends AliveObject {
+public class Bolid extends DishObject {
 
-    public Bolid(Dish d, IDishObjectSprite s, int size) {
-        super(d, s, size);
+    public Bolid(Dish d, int size) {
+        super(d, size);
     }
     
     @Override

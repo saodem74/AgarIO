@@ -14,8 +14,8 @@ import java.awt.Color;
  */
 public class BacteryView extends DishObjectView {
 
-    public BacteryView(IDishObjectViewRealization r, DishObject o) {
-        super(r,o);
+    public BacteryView(DishObject o) {
+        super(o);
     }
 
     @Override

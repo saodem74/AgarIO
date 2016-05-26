@@ -15,8 +15,8 @@ import java.awt.Color;
  */
 public class PrimitiveView extends DishObjectView {
 
-    public PrimitiveView(IDishObjectViewRealization r, DishObject o) {
-        super(r,o);
+    public PrimitiveView(DishObject o) {
+        super(o);
     }
 
     @Override

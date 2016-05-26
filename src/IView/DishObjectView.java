@@ -26,10 +26,13 @@ public abstract class DishObjectView implements ActionListener {
     
     private DishView dish;
     
-    public DishObjectView(IDishObjectViewRealization r, DishObject o){
-        realization = r;
+    public DishObjectView(DishObject o){
         object = o;
-        realization.setImage(createCircle(o.getSize()));
+    }
+    
+    public void setRealization(IDishObjectViewRealization r){
+        realization = r;
+        realization.setImage(createCircle(object.getSize()));
     }
     
     private BufferedImage createCircle(int size){

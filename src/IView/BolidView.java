@@ -14,8 +14,8 @@ import java.awt.Color;
  */
 public class BolidView extends DishObjectView {
 
-    public BolidView(IDishObjectViewRealization r, DishObject o) {
-        super(r,o);
+    public BolidView(DishObject o) {
+        super(o);
     }
 
     @Override

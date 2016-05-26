@@ -36,55 +36,20 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public Bacterium createBactery(Dish d, int size) {
-        //create model object
-        DishObjectSpriteGTGE sprite = new DishObjectSpriteGTGE();
-        Bacterium b = new Bacterium(d,sprite,size);
-        sprite.setDishObject(b);
-        //create view object
-        IDishObjectViewRealization viewR = new DishObjectViewRealizationGTGE(sprite);
-        DishObjectView view = new BacteryView(viewR,b);
-        b.addListener(view);
-        createdDishObjects.put(b, view);
-        realizations.put(b, sprite);
-        return b;
+    protected IDishObjectSprite createSprite() {
+        return new DishObjectSpriteGTGE();
     }
 
     @Override
-    public DishObject createBolid(Dish d, int size) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected IDishObjectViewRealization createViewRealization(IDishObjectSprite s) {
+        return new DishObjectViewRealizationGTGE((DishObjectSpriteGTGE) s);
     }
-
+    
     @Override
-    public DishObject createPrimitive(Dish d, String type) {
-        //create model object
-        DishObjectSpriteGTGE sprite = new DishObjectSpriteGTGE();
-        PrimitiveObject p;
-        switch(type){
-            case "Agar":
-                p = new Agar(d,sprite);
-                break;
-            case "CO2":
-                p = new CO2(d,sprite);
-                break;
-            case "Light":
-                p = new Light(d,sprite);
-                break;
-            case "O2":
-                p = new O2(d,sprite);
-                break;
-            default: //Water
-                p = new Water(d,sprite);
-                break;
-        }
-        sprite.setDishObject(p);
-        //create view object
-        IDishObjectViewRealization viewR = new DishObjectViewRealizationGTGE(sprite);
-        DishObjectView view = new PrimitiveView(viewR,p);
-        p.addListener(view);
-        createdDishObjects.put(p, view);
-        realizations.put(p, sprite);
-        return p;
+    protected IDishObjectSprite createDishObject(DishObject o, DishObjectView v){
+        IDishObjectSprite sprite = super.createDishObject(o, v);
+        realizations.put(o, (DishObjectSpriteGTGE) sprite);
+        return sprite;
     }
 
     @Override

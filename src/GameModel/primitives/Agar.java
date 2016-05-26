@@ -7,7 +7,6 @@ package GameModel.primitives;
 
 import GameModel.Dish;
 import GameModel.DishObject;
-import IModel.IDishObjectSprite;
 
 /**
  *
@@ -15,8 +14,8 @@ import IModel.IDishObjectSprite;
  */
 public class Agar extends PrimitiveObject {
 
-    public Agar(Dish d, IDishObjectSprite s) {
-        super(d, s);
+    public Agar(Dish d) {
+        super(d);
     }
     
     @Override

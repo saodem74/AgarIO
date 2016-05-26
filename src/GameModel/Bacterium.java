@@ -5,16 +5,14 @@
  */
 package GameModel;
 
-import IModel.IDishObjectSprite;
-
 /**
  *
  * @author tranhieu
  */
-public class Bacterium extends AliveObject {
+public class Bacterium extends DishObject {
 
-    public Bacterium(Dish d, IDishObjectSprite s, int size) {
-        super(d, s, size);
+    public Bacterium(Dish d, int size) {
+        super(d, size);
     }
     
     @Override
