@@ -14,9 +14,9 @@ import java.awt.Graphics2D;
  */
 public class GameGTGE extends Game {
 
-    GameManagerGTGE manager;
+    ApplicationGTGE manager;
 
-    public GameGTGE(GameManagerGTGE m){
+    public GameGTGE(ApplicationGTGE m){
         super();
         manager = m;
     }

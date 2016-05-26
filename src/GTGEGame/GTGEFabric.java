@@ -79,9 +79,9 @@ public class GTGEFabric extends AbstractFabric {
     }
 
     @Override
-    public GameManager createGameManager() {
-        GameManagerGTGE gm = new GameManagerGTGE(this);
-        return gm;
+    public Application createApplication() {
+        ApplicationGTGE app = new ApplicationGTGE(this);
+        return app;
     }
     
     public Game getGameGTGEObject(){

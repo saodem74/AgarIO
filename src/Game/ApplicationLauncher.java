@@ -14,6 +14,6 @@ import GTGEGame.GTGEFabric;
 public class ApplicationLauncher {
     public static void main(String[] args){ 
         AbstractFabric fabric = new GTGEFabric();
-        GameManager manager = fabric.createGameManager();
+        Application app = fabric.createApplication();
     }
 }

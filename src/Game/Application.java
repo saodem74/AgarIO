@@ -13,7 +13,7 @@ import java.awt.Graphics2D;
  *
  * @author tranhieu
  */
-public abstract class GameManager {
+public abstract class Application {
     
     protected final int GAME_WIDTH = 2000;
     protected final int GAME_HEIGHT = 2000;
@@ -23,7 +23,7 @@ public abstract class GameManager {
     private GameModel model;
     private GameView view;
     
-    public GameManager(AbstractFabric fabric) {
+    public Application(AbstractFabric fabric) {
         model = new GameModel(GAME_WIDTH, GAME_HEIGHT, fabric);
         view = fabric.createGameView(model,SCREEN_WIDTH,SCREEN_HEIGHT);
         model.startGame();

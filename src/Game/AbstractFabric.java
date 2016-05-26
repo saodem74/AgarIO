@@ -81,5 +81,5 @@ public abstract class AbstractFabric {
     
     public abstract DishView createDishView(Dish dish, int w, int h, String background);
     
-    public abstract GameManager createGameManager();
+    public abstract Application createApplication();
 }

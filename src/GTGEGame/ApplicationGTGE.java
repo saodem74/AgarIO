@@ -6,7 +6,7 @@
 package GTGEGame;
 
 import Game.AbstractFabric;
-import Game.GameManager;
+import Game.Application;
 import com.golden.gamedev.GameLoader;
 import java.awt.Dimension;
 
@@ -14,11 +14,11 @@ import java.awt.Dimension;
  *
  * @author tranhieu
  */
-public class GameManagerGTGE extends GameManager{
+public class ApplicationGTGE extends Application{
     
     private GameGTGE gamegtge;
     
-    public GameManagerGTGE(AbstractFabric fabric) {
+    public ApplicationGTGE(AbstractFabric fabric) {
         super(fabric);
         GameLoader game;
         game = new GameLoader();
