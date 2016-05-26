@@ -5,6 +5,7 @@
  */
 package IView;
 
+import GameModel.DishObject;
 import java.awt.Color;
 
 /**
@@ -13,8 +14,8 @@ import java.awt.Color;
  */
 public class BacteryView extends DishObjectView {
 
-    public BacteryView(IDishObjectViewRealization r, int size) {
-        super(r,size);
+    public BacteryView(IDishObjectViewRealization r, DishObject o) {
+        super(r,o);
     }
 
     @Override

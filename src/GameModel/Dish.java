@@ -47,10 +47,14 @@ public class Dish {
         return height;
     }
     
+    private Point getRandomPosition(){
+        return new Point((int)(Math.random()*width),(int)(Math.random()*height));
+    }
+    
     public Bacterium createBactery(int size){
         Bacterium b = fabric.createBactery(this,size);
         //get random position
-        Point rp = new Point((int)(Math.random()*width),(int)(Math.random()*height));
+        Point rp = getRandomPosition();
         addObject(b,rp);
         return b;
     }
@@ -59,6 +63,22 @@ public class Dish {
         Bacterium b = fabric.createBactery(this,size);
         addObject(b,pos);
         return b;
+    }
+    
+    public void createBasicPrimitives(int count){
+        createPrimitives((int) (Math.random() * count),"Agar");
+        createPrimitives((int) (Math.random() * count),"Light");
+        createPrimitives((int) (Math.random() * count), "Water");
+    }
+    
+    public void createPrimitives(int count, String type){
+        DishObject p;
+        Point rp;
+        for(int i=0; i<count; i++){
+            p = fabric.createPrimitive(this, type);
+            rp = getRandomPosition();
+            addObject(p,rp);
+        }
     }
     
     public void addObject(DishObject obj, Point pos){

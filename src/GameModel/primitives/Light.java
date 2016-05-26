@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameModel;
+package GameModel.primitives;
 
+import GameModel.Dish;
+import GameModel.DishObject;
 import IModel.IDishObjectSprite;
 
 /**
  *
  * @author tranhieu
  */
-public class CO2 extends PrimitiveObject {
+public class Light extends PrimitiveObject {
 
-    public CO2(Dish d, IDishObjectSprite s, int size) {
-        super(d, s, size);
+    public Light(Dish d, IDishObjectSprite s) {
+        super(d, s);
     }
-    
+
     @Override
     public boolean collideWith(DishObject o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

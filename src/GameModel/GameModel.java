@@ -21,6 +21,8 @@ public class GameModel {
     
     private final int PLAYERS_START_COUNT = 20;
     
+    private final int PRIMITIVES_START_COUNT = 20;
+    
     private Dish dish;
     
     private AbstractFabric fabric;
@@ -34,6 +36,7 @@ public class GameModel {
     
     public void startGame(){
         createPlayers();
+        dish.createBasicPrimitives(PRIMITIVES_START_COUNT);
     }
     
     private void createPlayers(){

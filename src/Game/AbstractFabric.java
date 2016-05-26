@@ -22,7 +22,7 @@ public abstract class AbstractFabric {
     
     public abstract DishObject createBolid(Dish d, int size);
     
-    public abstract DishObject createPrimitive(Dish d, int size);
+    public abstract DishObject createPrimitive(Dish d, String type);
     
     public DishObjectView getDishObjectView(DishObject model){
         return createdDishObjects.get(model);

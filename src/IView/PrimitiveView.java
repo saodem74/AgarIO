@@ -5,6 +5,8 @@
  */
 package IView;
 
+import GameModel.DishObject;
+import GameModel.primitives.*;
 import java.awt.Color;
 
 /**
@@ -13,13 +15,17 @@ import java.awt.Color;
  */
 public class PrimitiveView extends DishObjectView {
 
-    public PrimitiveView(IDishObjectViewRealization r, int size) {
-        super(r,size);
+    public PrimitiveView(IDishObjectViewRealization r, DishObject o) {
+        super(r,o);
     }
 
     @Override
     public Color chooseColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(object instanceof Agar) return Color.red;
+        else if(object instanceof Water) return Color.blue;
+        else if(object instanceof Light) return Color.yellow;
+        else if(object instanceof O2) return Color.white;
+        else return Color.gray; //CO2
     }
 
     @Override

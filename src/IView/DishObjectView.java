@@ -5,6 +5,7 @@
  */
 package IView;
 
+import GameModel.DishObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -17,15 +18,18 @@ import java.awt.image.BufferedImage;
  */
 public abstract class DishObjectView implements ActionListener {
     
+    protected DishObject object;
+    
     private IDishObjectViewRealization realization;
     
     private final int EDGE_LINE = 2;
     
     private DishView dish;
     
-    public DishObjectView(IDishObjectViewRealization r, int size){
+    public DishObjectView(IDishObjectViewRealization r, DishObject o){
         realization = r;
-        realization.setImage(createCircle(size));
+        object = o;
+        realization.setImage(createCircle(o.getSize()));
     }
     
     private BufferedImage createCircle(int size){

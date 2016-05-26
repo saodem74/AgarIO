@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameModel;
+package GameModel.primitives;
 
+import GameModel.Dish;
+import GameModel.DishObject;
 import IModel.IDishObjectSprite;
 
 /**
@@ -13,8 +15,8 @@ import IModel.IDishObjectSprite;
  */
 public class Agar extends PrimitiveObject {
 
-    public Agar(Dish d, IDishObjectSprite s, int size) {
-        super(d, s, size);
+    public Agar(Dish d, IDishObjectSprite s) {
+        super(d, s);
     }
     
     @Override
