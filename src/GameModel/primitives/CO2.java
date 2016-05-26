@@ -17,10 +17,5 @@ public class CO2 extends PrimitiveObject {
     public CO2(Dish d) {
         super(d);
     }
-    
-    @Override
-    public boolean collideWith(DishObject o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

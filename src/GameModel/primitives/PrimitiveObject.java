@@ -23,4 +23,9 @@ public abstract class PrimitiveObject extends DishObject {
         return this.getClass().getSimpleName();
     }
     
+    @Override
+    public boolean collideWith(DishObject o){
+        return false;
+    }
+    
 }
