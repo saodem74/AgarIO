@@ -5,11 +5,15 @@
  */
 package GameModel;
 
+import GameModel.specializations.Specialization;
+
 /**
  *
  * @author tranhieu
  */
 public class Bacterium extends DishObject {
+    
+    private Specialization spec;
 
     public Bacterium(Dish d, int size) {
         super(d, size);
@@ -19,6 +23,11 @@ public class Bacterium extends DishObject {
     public boolean collideWith(DishObject o) {
         dish.removeObject(o);
         return true;
+    }
+
+    @Override
+    public String getType() {
+        return spec.getType();
     }
     
 }

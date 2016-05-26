@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameModel;
+package GameModel.specializations;
 
 /**
  *
  * @author tranhieu
  */
-public class Specialization {
+public class EvolutionaryTree {
     
 }

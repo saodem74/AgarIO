@@ -81,5 +81,7 @@ public abstract class DishObject {
         this.size = size;
     }
     
+    public abstract String getType();
+    
     public abstract boolean collideWith(DishObject o);
 }

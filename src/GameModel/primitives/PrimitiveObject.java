@@ -18,4 +18,9 @@ public abstract class PrimitiveObject extends DishObject {
         super(d, 15); //basic size
     }
     
+    @Override
+    public String getType(){
+        return this.getClass().getSimpleName();
+    }
+    
 }

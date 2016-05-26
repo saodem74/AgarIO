@@ -10,6 +10,8 @@ package GameModel;
  * @author tranhieu
  */
 public class Bolid extends DishObject {
+    
+    Bacterium bact;
 
     public Bolid(Dish d, int size) {
         super(d, size);
@@ -18,6 +20,11 @@ public class Bolid extends DishObject {
     @Override
     public boolean collideWith(DishObject o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getType() {
+        return bact.getType();
     }
     
 }
