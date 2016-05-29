@@ -15,7 +15,8 @@ import java.util.ArrayList;
  * @author tranhieu
  */
 public abstract class DishObject {
-    
+
+    private boolean isGrowd;
     protected int size;
 
     private final double SPEED_COEFFICIENT = 20/3;
@@ -26,6 +27,7 @@ public abstract class DishObject {
     
     public DishObject (Dish d, int size){
         dish = d;
+        isGrowd = false;
         this.size = size;
     }
     
@@ -79,6 +81,14 @@ public abstract class DishObject {
     
     public void setSize(int size){
         this.size = size;
+    }
+    
+    public boolean getIsGrowd(){
+        return this.isGrowd;
+    }
+    
+    public void changeIsGrowd(){
+        this.isGrowd = !(this.isGrowd);
     }
     
     public abstract String getType();

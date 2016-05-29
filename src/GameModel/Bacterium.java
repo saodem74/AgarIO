@@ -23,6 +23,8 @@ public class Bacterium extends DishObject {
     @Override
     public boolean collideWith(DishObject o) {
         dish.removeObject(o);
+        super.setSize(super.getSize() + 3);
+        super.changeIsGrowd();
         return true;
     }
 

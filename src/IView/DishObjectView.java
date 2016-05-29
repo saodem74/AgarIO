@@ -11,6 +11,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,6 +31,7 @@ public abstract class DishObjectView implements ActionListener {
         object = o;
     }
     
+   
     public void setRealization(IDishObjectViewRealization r){
         realization = r;
         realization.setImage(paint());
@@ -50,6 +52,10 @@ public abstract class DishObjectView implements ActionListener {
     }
     
     public void render(Graphics2D g){
+        if (this.object.getIsGrowd()){
+            this.object.changeIsGrowd();
+            realization.setImage(paint());
+        }
         realization.render(g);
     }
     
@@ -64,6 +70,7 @@ public abstract class DishObjectView implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        realization.setImage(paint());
     }
+    
 }
