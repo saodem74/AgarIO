@@ -6,6 +6,7 @@
 package GameModel;
 
 import GameModel.specializations.Specialization;
+import java.util.Random;
 
 /**
  *
@@ -14,6 +15,8 @@ import GameModel.specializations.Specialization;
 public class Bacterium extends DishObject {
     
     private Specialization spec;
+    
+    private static Random rn = new Random();
     
     public Bacterium(Dish d, int size, Specialization s) {
         super(d, size);
@@ -44,8 +47,10 @@ public class Bacterium extends DishObject {
         }
     }
     protected void upgrade(){
-        //spec = GameModel.getInstance().getEvolutionaryTree().getUpgradeLevels(spec).get(0);
-        spec = GameModel.getInstance().getEvolutionaryTree().getRandomSpec();
+        int size = GameModel.getInstance().getEvolutionaryTree().getUpgradeLevels(spec).size();
+        int indexRand = rn.nextInt(size);
+        spec = GameModel.getInstance().getEvolutionaryTree().getUpgradeLevels(spec).get(indexRand);
+       // spec = GameModel.getInstance().getEvolutionaryTree().getRandomSpec();
         System.out.println("Upgraded to " + spec.toString());
     }
 }
