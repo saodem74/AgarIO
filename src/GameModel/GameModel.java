@@ -40,10 +40,28 @@ public class GameModel {
     
     private ArrayList<Controller> players = new ArrayList<>();
     
+    private static GameModel instance = null;
+    
+    public static GameModel getInstance(){
+        if (instance == null){
+            instance = new GameModel();
+        }
+        return instance;
+    }
+
+    private GameModel() {
+        
+    }
+    
+    public EvolutionaryTree getEvolutionaryTree(){
+        return this.specTree;
+    }
+    
     public GameModel(int width, int height, AbstractFabric fabric){
         this.fabric = fabric;
         dish = new Dish(width,height,fabric);
         specTree = new EvolutionaryTree();
+        instance = this;
     }
     
     public void startGame(){

@@ -14,7 +14,7 @@ import GameModel.specializations.Specialization;
 public class Bacterium extends DishObject {
     
     private Specialization spec;
-
+    
     public Bacterium(Dish d, int size, Specialization s) {
         super(d, size);
         spec = s;
@@ -23,7 +23,7 @@ public class Bacterium extends DishObject {
     @Override
     public boolean collideWith(DishObject o) {
         dish.removeObject(o);
-        super.setSize(super.getSize() + 3);
+        grow();
         super.changeIsGrowd();
         return true;
     }
@@ -33,4 +33,16 @@ public class Bacterium extends DishObject {
         return spec.getType();
     }
     
+    protected void grow(){
+        super.setSize(super.getSize() + 1);
+        if (super.getSize() >= super.nextUpgrade){
+            upgrade();
+            super.setNextUpgrade(super.nextUpgrade + 10);
+        }
+    }
+    protected void upgrade(){
+        //spec = GameModel.getInstance().getEvolutionaryTree().getUpgradeLevels(spec).get(0);
+        spec = GameModel.getInstance().getEvolutionaryTree().getRandomSpec();
+        System.out.println("Upgraded to " + spec.toString());
+    }
 }

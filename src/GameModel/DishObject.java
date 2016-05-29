@@ -18,7 +18,7 @@ public abstract class DishObject {
 
     private boolean isGrowd;
     protected int size;
-
+    protected int nextUpgrade;
     private final double SPEED_COEFFICIENT = 20/3;
     
     private IDishObjectSprite sprite;
@@ -29,6 +29,7 @@ public abstract class DishObject {
         dish = d;
         isGrowd = false;
         this.size = size;
+        this.setNextUpgrade(size + 15);
     }
     
     public void setSprite(IDishObjectSprite s){
@@ -57,6 +58,9 @@ public abstract class DishObject {
         sprite.setSpeed(dx, dy);
     }
     
+    protected void setNextUpgrade(int nextU){
+        this.nextUpgrade = nextU;
+    }
     public void setPosition(Point pos){
         sprite.setPosition(pos);
     }

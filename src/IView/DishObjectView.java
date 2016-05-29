@@ -27,11 +27,19 @@ public abstract class DishObjectView implements ActionListener {
     
     private DishView dish;
     
+    protected boolean isUpgrade;
+    
     public DishObjectView(DishObject o){
         object = o;
     }
     
-   
+    protected boolean getIsUpgrade(){
+        return this.isUpgrade;
+    }
+    protected void changeIsUpgrade(){
+        this.isUpgrade = !this.isUpgrade;
+    }
+    
     public void setRealization(IDishObjectViewRealization r){
         realization = r;
         realization.setImage(paint());
