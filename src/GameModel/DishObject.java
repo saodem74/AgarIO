@@ -20,7 +20,7 @@ public abstract class DishObject {
     protected int size;
     protected int nextUpgrade;
     private final double SPEED_COEFFICIENT = 20/3;
-    
+    protected static final int UPGRADE_COEFICIENT = 20;
     private IDishObjectSprite sprite;
     
     protected Dish dish;
@@ -29,7 +29,7 @@ public abstract class DishObject {
         dish = d;
         isGrowd = false;
         this.size = size;
-        this.setNextUpgrade(size + 15);
+        this.setNextUpgrade(size + UPGRADE_COEFICIENT);
     }
     
     public void setSprite(IDishObjectSprite s){

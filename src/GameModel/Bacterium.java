@@ -22,10 +22,13 @@ public class Bacterium extends DishObject {
     
     @Override
     public boolean collideWith(DishObject o) {
-        dish.removeObject(o);
-        grow();
-        super.changeIsGrowd();
-        return true;
+        if (spec.canEat(o, (DishObject)this)) {
+            dish.removeObject(o);
+            grow();
+            super.changeIsGrowd();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -37,7 +40,7 @@ public class Bacterium extends DishObject {
         super.setSize(super.getSize() + 1);
         if (super.getSize() >= super.nextUpgrade){
             upgrade();
-            super.setNextUpgrade(super.nextUpgrade + 10);
+            super.setNextUpgrade(super.nextUpgrade + UPGRADE_COEFICIENT);
         }
     }
     protected void upgrade(){
