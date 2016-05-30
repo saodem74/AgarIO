@@ -8,6 +8,7 @@ package IView;
 import GameModel.DishObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -63,10 +64,13 @@ public class BacteryView extends DishObjectView {
     public Color chooseColor() {
         return Color.GREEN;
     }
-
+  
     @Override
-    public void choosePicture() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent e){
+        super.actionPerformed(e);
+        if(e.getID()==3){   //specialization changed
+            realization.setImage(paint());
+        }
     }
     
 }

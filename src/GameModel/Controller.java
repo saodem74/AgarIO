@@ -5,16 +5,21 @@
  */
 package GameModel;
 
+import GameModel.specializations.Specialization;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author tranhieu
  */
-public abstract class Controller {
+public abstract class Controller implements ActionListener {
     
     protected Bacterium bact;
     
     public Controller(Bacterium b){
         bact = b;
+        bact.addListener(this);
     }
     
     public void update(){
@@ -22,5 +27,17 @@ public abstract class Controller {
     }
     
     public abstract void defineDirection();
+    
+    protected abstract Specialization chooseSpec();
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getID()==2){ //reached next level
+            Specialization newSpec = chooseSpec();
+            if(newSpec != null){
+                bact.setSpecialization(newSpec);
+            }
+        }
+    }
     
 }

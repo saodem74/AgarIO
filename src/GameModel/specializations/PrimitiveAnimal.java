@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class PrimitiveAnimal extends Specialization {
     
-    public PrimitiveAnimal(){
+    public PrimitiveAnimal(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.AVARAGE_EFFICIENCY, "CO2").addRule("O2")
                 .addRule("Water")
                 .addRule("SimpleBactery", 1, 1.2));

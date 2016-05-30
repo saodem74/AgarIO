@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class PredatorPlant extends Specialization {
     
-    public PredatorPlant(){
+    public PredatorPlant(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.AVARAGE_EFFICIENCY, "O2").addRule("CO2")
                 .addRule("Light")
                 .addRule("Water"))

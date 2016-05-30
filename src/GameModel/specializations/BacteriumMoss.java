@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class BacteriumMoss extends Specialization {
     
-    public BacteriumMoss(){
+    public BacteriumMoss(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.HIGH_EFFICIENCY, "O2").addRule("CO2")
                 .addRule("Light")
                 .addRule("Water"));

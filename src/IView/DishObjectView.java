@@ -20,7 +20,7 @@ public abstract class DishObjectView implements ActionListener {
     
     protected DishObject object;
     
-    private IDishObjectViewRealization realization;
+    protected IDishObjectViewRealization realization;
     
     private final int EDGE_LINE = 2;
     
@@ -60,12 +60,12 @@ public abstract class DishObjectView implements ActionListener {
     }
     
     public abstract Color chooseColor();
-    
-    public abstract void choosePicture();
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        realization.setImage(paint());
+        if(e.getID()==1){ //resize
+            realization.setImage(paint());
+        }
     }
     
 }

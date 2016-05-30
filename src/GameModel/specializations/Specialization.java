@@ -21,6 +21,12 @@ public abstract class Specialization {
      */
     protected ArrayList <Ration> rations = new ArrayList<>();
     
+    private EvolutionaryTree evoTree;
+    
+    public Specialization(EvolutionaryTree et){
+        evoTree = et;
+    }
+    
     public String getType(){
         return this.getClass().getSimpleName();
     }
@@ -79,6 +85,10 @@ public abstract class Specialization {
         }
         
         return null;
+    }
+    
+    public ArrayList<Specialization> getUpgrades(){
+        return evoTree.getUpgradeLevels(this);
     }
     
 }

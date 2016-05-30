@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class PhytophagousAnimal extends Specialization {
     
-    public PhytophagousAnimal(){
+    public PhytophagousAnimal(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.AVARAGE_EFFICIENCY, "CO2").addRule("O2")
                 .addRule("Water")
                 .addRule("PrimitivePlant", 1, 1.25))

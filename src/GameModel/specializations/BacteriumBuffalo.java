@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class BacteriumBuffalo extends Specialization {
     
-    public BacteriumBuffalo(){
+    public BacteriumBuffalo(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.LOW_EFFICIENCY, "CO2").addRule("O2")
                 .addRule("Water")
                 .addRule("PrimitivePlant", 1, 1.25))

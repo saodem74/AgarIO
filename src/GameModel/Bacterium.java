@@ -56,6 +56,10 @@ public class Bacterium extends DishObject {
         if(change==0)
             return;
         setSize(getSize()+change);
+        if(size>=nextLevel){
+            fireReachedNextLevel();
+            nextLevel+=LEVEL_JUMP;
+        }
     }
     
     private int digest(){
@@ -75,11 +79,31 @@ public class Bacterium extends DishObject {
         }
         return completedRation.getSizeGrowth(eatenSize);
     }
+    
+    public void setSpecialization(Specialization s){
+        spec = s;
+        fireSpecializationChanged();
+    }
+    
+    public Specialization getSpecialization(){
+        return spec;
+    }
 
     @Override
     public String getType() {
         return spec.getType();
     }
     
+    private void fireReachedNextLevel(){
+        for(ActionListener l : listeners){
+            l.actionPerformed(new ActionEvent(this,2,"reached next level"));
+        }
+    }
+    
+    private void fireSpecializationChanged(){
+        for(ActionListener l : listeners){
+            l.actionPerformed(new ActionEvent(this,3,"specialization changed"));
+        }
+    }
     
 }

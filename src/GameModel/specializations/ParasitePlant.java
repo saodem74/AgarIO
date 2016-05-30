@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class ParasitePlant extends Specialization {
     
-    public ParasitePlant(){
+    public ParasitePlant(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.LOW_EFFICIENCY, "O2").addRule("CO2")
                 .addRule("Light")
                 .addRule("Water"))

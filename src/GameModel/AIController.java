@@ -5,6 +5,8 @@
  */
 package GameModel;
 
+import GameModel.specializations.Specialization;
+
 /**
  *
  * @author tranhieu
@@ -18,6 +20,11 @@ public class AIController extends Controller {
     @Override
     public void defineDirection() {
         
+    }
+
+    @Override
+    protected Specialization chooseSpec() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -27,10 +27,5 @@ public class PrimitiveView extends DishObjectView {
         else if(object instanceof O2) return Color.white;
         else return Color.gray; //CO2
     }
-
-    @Override
-    public void choosePicture() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

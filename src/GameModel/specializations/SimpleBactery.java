@@ -11,7 +11,8 @@ package GameModel.specializations;
  */
 public class SimpleBactery extends Specialization{
 
-    public SimpleBactery(){
+    public SimpleBactery(EvolutionaryTree et){
+        super(et);
         addRation(new Ration(Ration.HIGH_EFFICIENCY, "CO2").addRule("Agar")
                 .addRule("Water")
                 .addRule("Light"))
