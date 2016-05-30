@@ -36,6 +36,20 @@ public abstract class DishObject {
     
     public void update(long l){
         sprite.update(l);
+        if(getPosition().x > dish.getWidth()-size/2){
+            setPosition(new Point(dish.getWidth()-size/2,getPosition().y));
+            setSpeed(0, getSpeedY());
+        } else if(getPosition().x < size/2) {
+            setPosition(new Point(size/2,getPosition().y));
+            setSpeed(0, getSpeedY());
+        }
+        if(getPosition().y > dish.getHeight()-size/2){
+            setPosition(new Point(getPosition().x,dish.getHeight()-size/2));
+            setSpeed(getSpeedX(), 0);
+        } else if (getPosition().y-size/2 < 0) {
+            setPosition(new Point(getPosition().x,size/2));
+            setSpeed(getSpeedX(), 0);
+        }
     }
     
     public void setDirection(double x, double y){

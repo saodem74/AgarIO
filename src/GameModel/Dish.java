@@ -91,7 +91,18 @@ public class Dish {
     }
     
     public void addObject(DishObject obj){
-        addObject(obj,getRandomPosition());
+        Point rp = getRandomPosition();
+        if(rp.x>(width-obj.getSize()/2)){
+            rp.x -= obj.getSize()/2;
+        } else if (rp.x<(obj.getSize()/2)){
+            rp.x += obj.getSize()/2;
+        }
+        if(rp.y>(height-obj.getSize()/2)){
+            rp.y -= obj.getSize()/2;
+        } else if (rp.y<(obj.getSize()/2)){
+            rp.y += obj.getSize()/2;
+        }
+        addObject(obj,rp);
     }
     
     public void removeObject(DishObject obj){
