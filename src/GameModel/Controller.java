@@ -11,38 +11,60 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- *
- * @author tranhieu
+ * Абстрактный класс контроллера, управляющего бактерией
  */
 public abstract class Controller implements ActionListener {
     
     protected Bacterium bact;
     
+    /**
+     * конструктор
+     * @param b - бактерия, которой будем управлять
+     */
     public Controller(Bacterium b){
         bact = b;
         bact.addListener(this);
     }
     
+    /**
+     * Обновление
+     */
     public void update(){
         defineDirection();
         shootBolid();
     }
     
+    /**
+     * Выбрать направление движения
+     */
     public abstract void defineDirection();
     
+    /**
+     * Выбрать специализацию при повышении
+     * @return специализация
+     */
     protected abstract Specialization chooseSpec();
     
+    /**
+     * Выстрелить болид
+     */
     public abstract void shootBolid();
 
+    /**
+     * Слушаем бактерию
+     * @param ae - событие, случившиеся с бактерией
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("reached next level")){ 
+            //меняем специализацию
             Specialization newSpec = chooseSpec();
             if(newSpec != null){
                 bact.setSpecialization(newSpec);
             }
         }
         else if(ae.getActionCommand().equals("died")){
+            //выходим из игры
             fireDead();
         }
     }
@@ -53,6 +75,9 @@ public abstract class Controller implements ActionListener {
         listeners.add(l);
     }
     
+    /**
+     * Убрать контроллер из игры
+     */
     private void fireDead(){
         for(ActionListener l : listeners){
             l.actionPerformed(new ActionEvent(this,1,"player died"));

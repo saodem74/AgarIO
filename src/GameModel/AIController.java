@@ -11,33 +11,45 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
- * @author tranhieu
+ * Класс, управляющий компьютерными противниками
  */
 public class AIController extends Controller {
     
-    private final double SHOOT_BOLID_CHANCE = 0.05;
+    private final double SHOOT_BOLID_CHANCE = 0.1; //шанс запуска болида
 
     private final Timer timer = new Timer();
     
     private double dx,dy;
     
+    /**
+     * Конструктор
+     * @param b - бактерия, которой будем управлять
+     */
     public AIController(Bacterium b) {
         super(b);
         setRandomDirection();
         startTimer();
     }
 
+    /**
+     * Выбрать направление движения
+     */
     @Override
     public void defineDirection() {
         bact.setDirection(dx, dy);
     }
     
+    /**
+     * Задать случайное направление
+     */
     private void setRandomDirection(){
         dx = Math.random()-0.5;
         dy = Math.random()-0.5;
     }
     
+    /**
+     * Запустить таймер, отсчитывающий время до смены направления движения
+     */
     private void startTimer(){
         timer.schedule(new TimerTask(){
             @Override
@@ -48,6 +60,10 @@ public class AIController extends Controller {
         }, (int)(Math.random()*3000));
     }
 
+    /**
+     * Выбрать рандомную специализацию
+     * @return специализация для прокачки
+     */
     @Override
     protected Specialization chooseSpec() {
         Specialization spec = null;
@@ -62,6 +78,9 @@ public class AIController extends Controller {
         return spec;
     }
 
+    /**
+     * Выстрелить болид случайно
+     */
     @Override
     public void shootBolid() {
         if(Math.random()<SHOOT_BOLID_CHANCE){

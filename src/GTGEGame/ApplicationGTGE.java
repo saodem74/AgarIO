@@ -11,21 +11,25 @@ import com.golden.gamedev.GameLoader;
 import java.awt.Dimension;
 
 /**
- *
- * @author tranhieu
+ * Реализация приложения на GTGE
  */
 public class ApplicationGTGE extends Application{
     
-    private GameGTGE gamegtge;
+    private GameGTGE gamegtge; //объект игры из библиотеки gtge
     
+    /**
+     * Конструктор
+     * @param fabric - фабрика игровых объектов 
+     */
     public ApplicationGTGE(AbstractFabric fabric) {
         super(fabric);
+        //Создаем приложение gtge
         GameLoader game;
         game = new GameLoader();
-        gamegtge = new GameGTGE(this);
-        ((GTGEFabric)fabric).setGameGTGEObject(gamegtge);
-        game.setup(gamegtge, new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT), false);
-        game.start();
+        gamegtge = new GameGTGE(this); //создаем объект игры gtge
+        ((GTGEFabric)fabric).setGameGTGEObject(gamegtge); //сохраняем созданную игру на фабрике
+        game.setup(gamegtge, new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT), false); //устанавливаем параметры игры
+        game.start(); 
     }
     
     public GameGTGE getGameGTGE(){

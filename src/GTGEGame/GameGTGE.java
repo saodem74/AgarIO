@@ -9,37 +9,43 @@ import com.golden.gamedev.Game;
 import java.awt.Graphics2D;
 
 /**
- *
- * @author tranhieu
+ * Класс игры, отлавливающий события обновления и рендера
  */
 public class GameGTGE extends Game {
 
-    ApplicationGTGE manager;
+    ApplicationGTGE app; //ссылка на приложение
 
-    public GameGTGE(ApplicationGTGE m){
+    /**
+     * Конструктор
+     * @param a - приложение
+     */
+    public GameGTGE(ApplicationGTGE a){
         super();
-        manager = m;
+        app = a;
     }
 
+    /**
+     * метод, вызываемый при запуске игры
+     */
     @Override
     public void initResources() {
     }
 
+    /**
+     * Обновление игры
+     * @param l - время с предыдущего обновления
+     */
     @Override
     public void update(long l) {
-        manager.update(l);
+        app.update(l);
     }
 
+    /**
+     * Отрисовка игры
+     * @param gd - объект графики для рисования
+     */
     @Override
     public void render(Graphics2D gd) {
-        manager.render(gd);
-    }
-    
-    public int getbsInputX(){
-        return this.bsInput.getMouseX();
-    }
-
-    public int getbsInputY(){
-        return this.bsInput.getMouseY();
+        app.render(gd);
     }
 }

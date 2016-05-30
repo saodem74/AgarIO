@@ -8,12 +8,13 @@ package Game;
 import GTGEGame.GTGEFabric;
 
 /**
- *
- * @author tranhieu
+ * Главный класс, запускающий приложение
  */
 public class ApplicationLauncher {
-    public static void main(String[] args){ 
+    public static void main(String[] args){
+        //выбираем библиотеку, которую будем использовать для реализации
         AbstractFabric fabric = new GTGEFabric();
+        //запускаем игру
         Application app = fabric.createApplication();
     }
 }

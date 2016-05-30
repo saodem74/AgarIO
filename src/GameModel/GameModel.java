@@ -30,7 +30,7 @@ public class GameModel implements ActionListener{
     
     private final double EMERGENCE_OF_NEW_BACTERY_CHANCE = 0.02;
     
-    private final int PLAYER_SIZE_DIFFERENCE = 40;
+    private final int PLAYER_SIZE_DIFFERENCE = 40; //колебания размера игроков при создании
     
     private final double EMERGENCE_OF_PRIMITIVES_CHANCE = 0.05;
     
@@ -50,25 +50,36 @@ public class GameModel implements ActionListener{
         specTree = new EvolutionaryTree();
     }
     
+    /**
+     * начать игру
+     */
     public void startGame(){
         createPlayers();
         dish.createBasicPrimitives(PRIMITIVES_START_COUNT);
     }
     
+    /**
+     * создать игроков в начале игры
+     */
     private void createPlayers(){
-        //create main player
+        //создание главного игрока
         Bacterium b = dish.createBactery(PLAYER_START_SIZE, specTree.getBaseSpec());
         Controller player = fabric.createPlayerController(b);
         player.addListener(this);
         players.add(player);
         fireMainPlayerCreated(b);
-        //create other players
+        //создание соперников
         int bactNumber = (int)(Math.random()* PLAYERS_START_COUNT);
         for(int i=0; i<bactNumber; i++){
             createAIPlayer(PLAYER_START_SIZE,specTree.getBaseSpec());
         }
     }
     
+    /**
+     * Создание соперника
+     * @param size - размер
+     * @param spec - специализация
+     */
     private void createAIPlayer(int size, Specialization spec){
         Bacterium b = dish.createBactery(size,spec);
         AIController ai = new AIController(b);
@@ -76,13 +87,19 @@ public class GameModel implements ActionListener{
         players.add(ai);
     }
     
+    /**
+     * Обновление
+     * @param l - время с предыдущего обновления
+     */
     public void update(long l){
         for(Controller p : players){
             p.update();
         }
+        //добавить игроков
         if(Math.random() < EMERGENCE_OF_NEW_BACTERY_CHANCE){
             createAIPlayer(PLAYER_START_SIZE + (int)(Math.random()*PLAYER_SIZE_DIFFERENCE), specTree.getRandomSpec());
         }
+        //добавить примитивных объектов
         if(Math.random() < EMERGENCE_OF_PRIMITIVES_CHANCE){
             dish.createBasicPrimitives((int) (Math.random()*EMERGING_PRIMITIVES_COUNT));
         }
