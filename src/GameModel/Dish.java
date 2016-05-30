@@ -6,6 +6,7 @@
 package GameModel;
 
 import Game.AbstractFabric;
+import GameModel.primitives.PrimitiveObject;
 import GameModel.specializations.Specialization;
 import IModel.CollisionManager;
 import java.awt.Point;
@@ -54,9 +55,7 @@ public class Dish {
     
     public Bacterium createBactery(int size, Specialization spec){
         Bacterium b = fabric.createBactery(this,size,spec);
-        //get random position
-        Point rp = getRandomPosition();
-        addObject(b,rp);
+        addObject(b);
         return b;
     }
     
@@ -74,12 +73,14 @@ public class Dish {
     
     public void createPrimitives(int count, String type){
         DishObject p;
-        Point rp;
         for(int i=0; i<count; i++){
             p = fabric.createPrimitive(this, type);
-            rp = getRandomPosition();
-            addObject(p,rp);
+            addObject(p);
         }
+    }
+    
+    public PrimitiveObject createPrimitive(String type){
+        return fabric.createPrimitive(this, type);
     }
     
     public void addObject(DishObject obj, Point pos){
@@ -87,6 +88,10 @@ public class Dish {
         objects.add(obj);
         collisionManager.addObject(obj);
         fireObjectCreated(obj);
+    }
+    
+    public void addObject(DishObject obj){
+        addObject(obj,getRandomPosition());
     }
     
     public void removeObject(DishObject obj){

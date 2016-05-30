@@ -27,11 +27,11 @@ public abstract class AbstractFabric {
         return b;
     }
     
-    public DishObject createBolid(Dish d, int size){
+    public Bolid createBolid(Dish d, int size){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public DishObject createPrimitive(Dish d, String type){
+    public PrimitiveObject createPrimitive(Dish d, String type){
         PrimitiveObject p;
         switch(type){
             case "Agar":

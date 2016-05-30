@@ -5,8 +5,10 @@
  */
 package GameModel;
 
+import GameModel.primitives.PrimitiveObject;
 import GameModel.specializations.Ration;
 import GameModel.specializations.Specialization;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -77,7 +79,17 @@ public class Bacterium extends DishObject {
                 }
             }
         }
+        producePrimitives(completedRation.getJunk(),completedRation.junkCount(eatenSize));
         return completedRation.getSizeGrowth(eatenSize);
+    }
+    
+    private void producePrimitives(String type, int count){
+        PrimitiveObject primitive;
+        for(int i=0;i<count;++i){
+            primitive = dish.createPrimitive(type);
+            dish.addObject(primitive, getPosition());
+            primitive.setDirection(Math.random()-0.5, Math.random()-0.5);
+        }
     }
     
     public void setSpecialization(Specialization s){

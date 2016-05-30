@@ -51,8 +51,16 @@ public abstract class DishObject {
         setSpeed(dx/size,dy/size);
     }
     
-    private void setSpeed(double dx, double dy){
+    protected void setSpeed(double dx, double dy){
         sprite.setSpeed(dx, dy);
+    }
+    
+    public double getSpeedX(){
+        return sprite.getSpeedX();
+    }
+    
+    public double getSpeedY(){
+        return sprite.getSpeedY();
     }
     
     public void setPosition(Point pos){

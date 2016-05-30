@@ -14,6 +14,8 @@ import GameModel.DishObject;
  */
 public abstract class PrimitiveObject extends DishObject {
     
+    private final double SPEED_DECREASE = 0.98;
+    
     public PrimitiveObject(Dish d) {
         super(d, 15); //basic size
     }
@@ -28,4 +30,9 @@ public abstract class PrimitiveObject extends DishObject {
         return false;
     }
     
+    @Override
+    public void update(long l){
+        super.update(l);
+        setSpeed(getSpeedX()*SPEED_DECREASE,getSpeedY()*SPEED_DECREASE);
+    }
 }
