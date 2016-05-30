@@ -63,7 +63,7 @@ public abstract class DishObjectView implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getID()==1){ //resize
+        if(e.getActionCommand().equals("resize")){
             realization.setImage(paint());
         }
     }

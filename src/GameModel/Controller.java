@@ -8,6 +8,7 @@ package GameModel;
 import GameModel.specializations.Specialization;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,7 +33,7 @@ public abstract class Controller implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getID()==2){ //reached next level
+        if(ae.getActionCommand().equals("reached next level")){ 
             Specialization newSpec = chooseSpec();
             if(newSpec != null){
                 bact.setSpecialization(newSpec);
@@ -40,4 +41,4 @@ public abstract class Controller implements ActionListener {
         }
     }
     
-}
+    }

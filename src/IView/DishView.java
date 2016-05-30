@@ -65,10 +65,10 @@ public abstract class DishView implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getID() == 1){ //object created
+        if(e.getActionCommand().equals("object created")){
             addView(fabric.getDishObjectView((DishObject)e.getSource()));
         }
-        else if(e.getID() == 2){    //object removed
+        else if(e.getActionCommand().equals("object removed")){
             removeView(fabric.getDishObjectView((DishObject)e.getSource()));
         }
     }

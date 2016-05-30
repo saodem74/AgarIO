@@ -67,7 +67,7 @@ public class BacteryView extends DishObjectView {
     @Override
     public void actionPerformed(ActionEvent e){
         super.actionPerformed(e);
-        if(e.getID()==3){   //specialization changed
+        if(e.getActionCommand().equals("specialization changed")){
             realization.setImage(paint());
         }
     }
