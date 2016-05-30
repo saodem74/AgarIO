@@ -24,7 +24,7 @@ public abstract class PlayerController extends Controller {
     @Override
     protected Specialization chooseSpec(){
         ArrayList<Specialization> upgradeLevels = bact.getSpecialization().getUpgrades();
-        if(upgradeLevels.isEmpty())
+        if(upgradeLevels == null)
             return null;
         ArrayList<String> strings = new ArrayList<>();
         strings.add("Не эволюционировать");

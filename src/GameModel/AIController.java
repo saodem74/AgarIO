@@ -51,7 +51,7 @@ public class AIController extends Controller {
         Specialization spec = null;
         if(Math.random()>0.5){
             ArrayList<Specialization> upgradeLevels = bact.getSpecialization().getUpgrades();
-            if(upgradeLevels.isEmpty()){
+            if(upgradeLevels == null){
                 return null;
             }
             int random = (int)(Math.random()*upgradeLevels.size());
