@@ -22,7 +22,8 @@ public abstract class AbstractFabric {
     
     public Bacterium createBactery(Dish d, int size, Specialization s){
         Bacterium b = new Bacterium(d,size,s);
-        createDishObject(b,new BacteryView(b));
+        DishObjectView v = new BacteryView(b);
+        createDishObject(b,v);
         return b;
     }
     
@@ -49,7 +50,8 @@ public abstract class AbstractFabric {
                 p = new Water(d);
                 break;
         }
-        createDishObject(p,new PrimitiveView(p));
+        DishObjectView v = new PrimitiveView(p);
+        createDishObject(p,v);
         return p;
     }
     

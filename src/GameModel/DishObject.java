@@ -7,6 +7,7 @@ package GameModel;
 
 import IModel.IDishObjectSprite;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -16,9 +17,7 @@ import java.util.ArrayList;
  */
 public abstract class DishObject {
 
-    private boolean isGrowd;
     protected int size;
-    protected int nextUpgrade;
     private final double SPEED_COEFFICIENT = 20/3;
     protected static final int UPGRADE_COEFICIENT = 20;
     private IDishObjectSprite sprite;
@@ -27,9 +26,7 @@ public abstract class DishObject {
     
     public DishObject (Dish d, int size){
         dish = d;
-        isGrowd = false;
         this.size = size;
-        this.setNextUpgrade(size + UPGRADE_COEFICIENT);
     }
     
     public void setSprite(IDishObjectSprite s){
@@ -58,9 +55,6 @@ public abstract class DishObject {
         sprite.setSpeed(dx, dy);
     }
     
-    protected void setNextUpgrade(int nextU){
-        this.nextUpgrade = nextU;
-    }
     public void setPosition(Point pos){
         sprite.setPosition(pos);
     }
@@ -69,7 +63,7 @@ public abstract class DishObject {
         return sprite.getPosition();
     }
     
-    private ArrayList<ActionListener> listeners = new ArrayList<>();
+    protected ArrayList<ActionListener> listeners = new ArrayList<>();
     
     public void addListener(ActionListener l){
         listeners.add(l);
@@ -85,14 +79,13 @@ public abstract class DishObject {
     
     public void setSize(int size){
         this.size = size;
+        fireResize();
     }
     
-    public boolean getIsGrowd(){
-        return this.isGrowd;
-    }
-    
-    public void changeIsGrowd(){
-        this.isGrowd = !(this.isGrowd);
+    private void fireResize(){
+        for(ActionListener l : listeners){
+            l.actionPerformed(new ActionEvent(this,1,"resize"));
+        }
     }
     
     public abstract String getType();
