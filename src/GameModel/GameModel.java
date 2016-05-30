@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author tranhieu
  */
-public class GameModel {
+public class GameModel implements ActionListener{
     
     private final int PLAYER_START_SIZE = 40;
     
@@ -40,7 +40,7 @@ public class GameModel {
     
     private ArrayList<Controller> players = new ArrayList<>();
     
-    public GameModel(int width, int height, AbstractFabric fabric){
+    public GameModel(int width, int height, AbstractFabric fabric) {
         this.fabric = fabric;
         dish = new Dish(width,height,fabric);
         specTree = new EvolutionaryTree();
@@ -54,7 +54,9 @@ public class GameModel {
     private void createPlayers(){
         //create main player
         Bacterium b = dish.createBactery(PLAYER_START_SIZE, specTree.getBaseSpec());
-        players.add(fabric.createPlayerController(b));
+        Controller player = fabric.createPlayerController(b);
+        player.addListener(this);
+        players.add(player);
         fireMainPlayerCreated(b);
         //create other players
         int bactNumber = (int)(Math.random()* PLAYERS_START_COUNT);
@@ -66,6 +68,7 @@ public class GameModel {
     private void createAIPlayer(int size, Specialization spec){
         Bacterium b = dish.createBactery(size,spec);
         AIController ai = new AIController(b);
+        ai.addListener(this);
         players.add(ai);
     }
     
@@ -96,6 +99,13 @@ public class GameModel {
         ActionEvent e = new ActionEvent(b,1,"main player created");
         for(ActionListener l : listeners){
             l.actionPerformed(e);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getActionCommand().equals("player died")){
+            players.remove((Controller)ae.getSource());
         }
     }
 }

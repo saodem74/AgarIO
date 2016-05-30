@@ -39,6 +39,20 @@ public abstract class Controller implements ActionListener {
                 bact.setSpecialization(newSpec);
             }
         }
+        else if(ae.getActionCommand().equals("died")){
+            fireDead();
+        }
     }
     
+    private ArrayList<ActionListener> listeners = new ArrayList<>();
+    
+    public void addListener(ActionListener l){
+        listeners.add(l);
     }
+    
+    private void fireDead(){
+        for(ActionListener l : listeners){
+            l.actionPerformed(new ActionEvent(this,1,"player died"));
+        }
+    }
+}

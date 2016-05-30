@@ -23,8 +23,6 @@ public class Bacterium extends DishObject {
     
     private Specialization spec;
     
-    private static Random rn = new Random();
-    
     private int nextLevel;
     
     private final int FIRST_UPGRADE_LEVEL = 100;
@@ -50,6 +48,7 @@ public class Bacterium extends DishObject {
     }
     
     private void eat(DishObject food){
+        food.destroy();
         resources.add(food);
         resize(digest());
     }
@@ -115,6 +114,18 @@ public class Bacterium extends DishObject {
     private void fireSpecializationChanged(){
         for(ActionListener l : listeners){
             l.actionPerformed(new ActionEvent(this,3,"specialization changed"));
+        }
+    }
+
+    @Override
+    public void destroy() {
+        resources.clear();
+        fireDied();
+    }
+    
+    private void fireDied(){
+        for(ActionListener l : listeners){
+            l.actionPerformed(new ActionEvent(this,4,"died"));
         }
     }
     

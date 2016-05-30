@@ -35,4 +35,9 @@ public abstract class PrimitiveObject extends DishObject {
         super.update(l);
         setSpeed(getSpeedX()*SPEED_DECREASE,getSpeedY()*SPEED_DECREASE);
     }
+    
+    @Override
+    public void destroy(){
+        
+    }
 }

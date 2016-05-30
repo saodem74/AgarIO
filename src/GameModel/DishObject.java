@@ -113,4 +113,6 @@ public abstract class DishObject {
     public abstract String getType();
     
     public abstract boolean collideWith(DishObject o);
+    
+    public abstract void destroy();
 }
