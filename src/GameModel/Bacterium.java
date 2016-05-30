@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
 
 /**
  *
@@ -25,8 +24,8 @@ public class Bacterium extends DishObject {
     
     private int nextLevel;
     
-    private final int FIRST_UPGRADE_LEVEL = 100;
-    
+    private final int MINIMAL_SIZE_TO_SHOOT_BOLID = 60;
+        
     private final int LEVEL_JUMP = 50;
     
     private ArrayList<DishObject> resources = new ArrayList<>();
@@ -34,7 +33,7 @@ public class Bacterium extends DishObject {
     public Bacterium(Dish d, int size, Specialization s) {
         super(d, size);
         spec = s;
-        nextLevel = FIRST_UPGRADE_LEVEL;
+        nextLevel = size+LEVEL_JUMP;
     }
     
     @Override
@@ -92,6 +91,8 @@ public class Bacterium extends DishObject {
     }
     
     public void shootBolid(double dx, double dy){
+        if(size < MINIMAL_SIZE_TO_SHOOT_BOLID)
+            return;
         Bolid b = dish.createBolid(this);
         Point p = new Point(getPosition().x,getPosition().y);
         if(dx>0){

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public abstract class DishObject {
 
     protected int size;
-    private final double SPEED_COEFFICIENT = 20/3;
+    private final double SPEED_COEFFICIENT = 10;
     protected static final int UPGRADE_COEFICIENT = 20;
     private IDishObjectSprite sprite;
     
