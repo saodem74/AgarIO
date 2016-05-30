@@ -10,13 +10,10 @@ import IView.*;
 import java.awt.Graphics2D;
 
 /**
- *
- * @author tranhieu
+ * Класс приложения
  */
 public abstract class Application {
     
-    protected final int GAME_WIDTH = 2000;
-    protected final int GAME_HEIGHT = 2000;
     protected final int SCREEN_WIDTH = 800;
     protected final int SCREEN_HEIGHT = 600;
     
@@ -24,7 +21,7 @@ public abstract class Application {
     private GameView view;
     
     public Application(AbstractFabric fabric) {
-        model = new GameModel(GAME_WIDTH, GAME_HEIGHT, fabric);
+        model = new GameModel(fabric);
         view = fabric.createGameView(model,SCREEN_WIDTH,SCREEN_HEIGHT);
         model.startGame();
     }

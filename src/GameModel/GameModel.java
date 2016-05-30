@@ -18,6 +18,10 @@ import java.util.ArrayList;
  */
 public class GameModel implements ActionListener{
     
+    private final int GAME_WIDTH = 2000;
+    
+    private final int GAME_HEIGHT = 2000;
+    
     private final int PLAYER_START_SIZE = 40;
     
     private final int PLAYERS_START_COUNT = 20;
@@ -40,9 +44,9 @@ public class GameModel implements ActionListener{
     
     private ArrayList<Controller> players = new ArrayList<>();
     
-    public GameModel(int width, int height, AbstractFabric fabric) {
+    public GameModel(AbstractFabric fabric) {
         this.fabric = fabric;
-        dish = new Dish(width,height,fabric);
+        dish = new Dish(GAME_WIDTH,GAME_HEIGHT,fabric);
         specTree = new EvolutionaryTree();
     }
     
