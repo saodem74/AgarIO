@@ -23,10 +23,9 @@ import javax.imageio.ImageIO;
  */
 public class BacteryView extends DishObjectView {
 
-    HashMap<String,BufferedImage> images;
+    private static final HashMap<String,BufferedImage> images = new HashMap<>();
     
-    {
-        images = new HashMap<>();
+    static {
         try {
             images.put("SimpleBactery", ImageIO.read(new File("resources/avatars/INITIAL_BACTERIUM.png")));
             images.put("BacteriumBuffalo", ImageIO.read(new File("resources/avatars/BACTERIUM_BUFFALO.png")));
@@ -40,7 +39,7 @@ public class BacteryView extends DishObjectView {
             images.put("PrimitiveAnimal", ImageIO.read(new File("resources/avatars/PRIMITIVE_ANIMAL.png")));
             images.put("PrimitivePlant", ImageIO.read(new File("resources/avatars/PRIMITIVE_PLANT.png")));
         } catch (IOException ex) {
-            Logger.getLogger(BacteryView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: can't load specialization images");
         }
     }
     
