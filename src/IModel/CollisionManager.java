@@ -20,10 +20,11 @@ public abstract class CollisionManager {
         double dx = first.getPosition().getX()-second.getPosition().getX();
         double dy = first.getPosition().getY()-second.getPosition().getY();
         double dist = dx*dx + dy*dy;
+        boolean firstAteSecond = false;
         if(dist <= first.getSize()*first.getSize()/4) {
-            first.collideWith(second);
+            firstAteSecond = first.collideWith(second);
         }
-        else if(dist <= second.getSize()*second.getSize()/4) {
+        if(!firstAteSecond && dist <= second.getSize()*second.getSize()/4) {
             second.collideWith(first);
         }
     }
