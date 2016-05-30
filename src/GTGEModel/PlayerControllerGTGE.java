@@ -42,5 +42,15 @@ public class PlayerControllerGTGE extends PlayerController {
     public void setBackground(Background b){
         background = b;
     }
-    
+
+    @Override
+    public void shootBolid() {
+        if(game.click()){
+            int mouseX = game.getMouseX()+(int)background.getX();
+            int mouseY = game.getMouseY()+(int)background.getY();
+            double dx = mouseX-bact.getPosition().x;
+            double dy = mouseY-bact.getPosition().y;
+            bact.shootBolid(dx, dy);
+        }
+    }
 }

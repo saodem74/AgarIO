@@ -59,5 +59,10 @@ public class AIController extends Controller {
         }
         return spec;
     }
+
+    @Override
+    public void shootBolid() {
+        
+    }
     
 }

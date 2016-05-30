@@ -20,7 +20,7 @@ public class BolidView extends DishObjectView {
 
     @Override
     public Color chooseColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Color.CYAN;
     }
     
 }

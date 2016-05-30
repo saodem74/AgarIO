@@ -12,14 +12,17 @@ package GameModel;
 public class Bolid extends DishObject {
     
     Bacterium bact;
+    
+    private final double SPEED_DECREASE = 0.995;
 
-    public Bolid(Dish d, int size) {
-        super(d, size);
+    public Bolid(Dish d, Bacterium b) {
+        super(d, b.getSize()/3);
+        bact = b;
     }
     
     @Override
     public boolean collideWith(DishObject o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
@@ -28,8 +31,14 @@ public class Bolid extends DishObject {
     }
 
     @Override
+    public void update(long l){
+        super.update(l);
+        setSpeed(getSpeedX()*SPEED_DECREASE,getSpeedY()*SPEED_DECREASE);
+    }
+    
+    @Override
     public void destroy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

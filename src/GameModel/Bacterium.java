@@ -50,10 +50,10 @@ public class Bacterium extends DishObject {
     private void eat(DishObject food){
         food.destroy();
         resources.add(food);
-        resize(digest());
+        grow(digest());
     }
     
-    private void resize(int change){
+    private void grow(int change){
         if(change==0)
             return;
         setSize(getSize()+change);
@@ -89,6 +89,24 @@ public class Bacterium extends DishObject {
             dish.addObject(primitive, getPosition());
             primitive.setDirection(Math.random()-0.5, Math.random()-0.5);
         }
+    }
+    
+    public void shootBolid(double dx, double dy){
+        Bolid b = dish.createBolid(this);
+        Point p = new Point(getPosition().x,getPosition().y);
+        if(dx>0){
+            p.x += size;
+        } else {
+            p.x -= size;
+        }
+        if(dy>0){
+            p.y += size;
+        } else {
+            p.y -= size;
+        }
+        dish.addObject(b, p);
+        b.setDirection(dx, dy);
+        setSize(size*2/3);
     }
     
     public void setSpecialization(Specialization s){
@@ -128,5 +146,4 @@ public class Bacterium extends DishObject {
             l.actionPerformed(new ActionEvent(this,4,"died"));
         }
     }
-    
 }

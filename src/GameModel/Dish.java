@@ -83,6 +83,10 @@ public class Dish {
         return fabric.createPrimitive(this, type);
     }
     
+    public Bolid createBolid(Bacterium b){
+        return fabric.createBolid(this, b);
+    }
+    
     public void addObject(DishObject obj, Point pos){
         obj.setPosition(pos);
         objects.add(obj);

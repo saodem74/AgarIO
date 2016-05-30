@@ -25,11 +25,14 @@ public abstract class Controller implements ActionListener {
     
     public void update(){
         defineDirection();
+        shootBolid();
     }
     
     public abstract void defineDirection();
     
     protected abstract Specialization chooseSpec();
+    
+    public abstract void shootBolid();
 
     @Override
     public void actionPerformed(ActionEvent ae) {

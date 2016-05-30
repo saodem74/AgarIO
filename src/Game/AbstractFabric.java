@@ -27,8 +27,11 @@ public abstract class AbstractFabric {
         return b;
     }
     
-    public Bolid createBolid(Dish d, int size){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Bolid createBolid(Dish d, Bacterium b){
+        Bolid bolid = new Bolid(d,b);
+        DishObjectView v = new BolidView(bolid);
+        createDishObject(bolid,v);
+        return bolid;
     }
     
     public PrimitiveObject createPrimitive(Dish d, String type){
