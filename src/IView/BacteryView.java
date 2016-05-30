@@ -23,7 +23,7 @@ import javax.imageio.ImageIO;
  */
 public class BacteryView extends DishObjectView {
 
-    private static final HashMap<String,BufferedImage> images = new HashMap<>();
+    public static final HashMap<String,BufferedImage> images = new HashMap<>();
     
     static {
         try {

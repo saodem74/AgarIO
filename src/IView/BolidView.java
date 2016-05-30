@@ -7,6 +7,8 @@ package IView;
 
 import GameModel.DishObject;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -23,4 +25,15 @@ public class BolidView extends DishObjectView {
         return Color.CYAN;
     }
     
+    @Override
+    protected BufferedImage paint(){
+        BufferedImage bi = super.paint();
+        BufferedImage avatar = BacteryView.images.get(object.getType());
+        if(avatar != null){
+            Graphics2D g2d = bi.createGraphics();
+            g2d.drawImage(avatar, 0, 0, object.getSize(), object.getSize(), null);
+            g2d.dispose();
+        }
+        return bi;
+    }
 }

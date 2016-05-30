@@ -15,6 +15,8 @@ import java.util.TimerTask;
  * @author tranhieu
  */
 public class AIController extends Controller {
+    
+    private final double SHOOT_BOLID_CHANCE = 0.05;
 
     private final Timer timer = new Timer();
     
@@ -62,7 +64,9 @@ public class AIController extends Controller {
 
     @Override
     public void shootBolid() {
-        
+        if(Math.random()<SHOOT_BOLID_CHANCE){
+            bact.shootBolid(bact.getSpeedX(), bact.getSpeedY());
+        }
     }
     
 }

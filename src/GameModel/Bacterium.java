@@ -5,30 +5,26 @@
  */
 package GameModel;
 
-import GameModel.primitives.PrimitiveObject;
-import GameModel.specializations.Ration;
 import GameModel.specializations.Specialization;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
  * @author tranhieu
  */
-public class Bacterium extends DishObject {
-    
-    private Specialization spec;
+public class Bacterium extends AliveObject {
     
     private int nextLevel;
     
-    private final int MINIMAL_SIZE_TO_SHOOT_BOLID = 60;
+    private final int MINIMAL_SIZE_TO_SHOOT_BOLID = 80;
         
     private final int LEVEL_JUMP = 50;
     
-    private ArrayList<DishObject> resources = new ArrayList<>();
+    private final int TIME_BEFORE_SHOOT_BOLID = 1000;
     
     public Bacterium(Dish d, int size, Specialization s) {
         super(d, size);
@@ -38,6 +34,32 @@ public class Bacterium extends DishObject {
     
     @Override
     public boolean collideWith(DishObject o) {
+        if(o instanceof Bolid){
+            Bolid b = (Bolid)o;
+            if(b.getParent() == this){
+                dish.removeObject(b);
+                consumeBolid(b);
+                return true;
+            } else if(b.getSize() < this.getSize()) {
+                if(enemyBolid != b){
+                    b.collideWith(this);
+                    enemyBolid = b;
+                    bolidSize = b.getSize();
+                    bolidSpeedX = b.getSpeedX();
+                    bolidSpeedY = b.getSpeedY();
+                    Timer t = new Timer();
+                    t.schedule(new TimerTask(){
+                        @Override
+                        public void run() {
+                            shootReverseBolid(bolidSize,bolidSpeedX,bolidSpeedY);
+                            enemyBolid = null;
+                        }
+                        
+                    }, TIME_BEFORE_SHOOT_BOLID);
+                }
+                return false;
+            }
+        }
         if (spec.canEat(o, (DishObject)this)) {
             dish.removeObject(o);
             eat(o);
@@ -46,48 +68,34 @@ public class Bacterium extends DishObject {
         return false;
     }
     
-    private void eat(DishObject food){
-        food.destroy();
-        resources.add(food);
-        grow(digest());
-    }
-    
-    private void grow(int change){
-        if(change==0)
-            return;
-        setSize(getSize()+change);
+    @Override
+    protected void grow(int change){
+        super.grow(change);
         if(size>=nextLevel){
             fireReachedNextLevel();
             nextLevel+=LEVEL_JUMP;
         }
     }
     
-    private int digest(){
-        Ration completedRation = spec.completedRation(resources);
-        if(completedRation == null)
-            return 0;
-        int eatenSize = 0;
-        Map<String,Integer> objects = completedRation.getRation();
-        for(String type : objects.keySet()){
-            for(int i=0;objects.get(type)>0 && i<resources.size();++i){
-                if(resources.get(i).getType().equals(type)){
-                    eatenSize += resources.get(i).getSize();
-                    resources.remove(i--);
-                    objects.put(type,objects.get(type)-1);
-                }
-            }
+    private void shootReverseBolid(int s, double dx, double dy){
+        if(size < MINIMAL_SIZE_TO_SHOOT_BOLID)
+            return;
+        Bolid b = dish.createBolid(this);
+        b.setSize(s);
+        Point p = new Point(getPosition().x,getPosition().y);
+        if(dx>0){
+            p.x += size;
+        } else {
+            p.x -= size;
         }
-        producePrimitives(completedRation.getJunk(),completedRation.junkCount(eatenSize));
-        return completedRation.getSizeGrowth(eatenSize);
-    }
-    
-    private void producePrimitives(String type, int count){
-        PrimitiveObject primitive;
-        for(int i=0;i<count;++i){
-            primitive = dish.createPrimitive(type);
-            dish.addObject(primitive, getPosition());
-            primitive.setDirection(Math.random()-0.5, Math.random()-0.5);
+        if(dy>0){
+            p.y += size;
+        } else {
+            p.y -= size;
         }
+        dish.addObject(b, p);
+        b.setDirection(dx, dy);
+        setSize(size-s);
     }
     
     public void shootBolid(double dx, double dy){
@@ -109,15 +117,6 @@ public class Bacterium extends DishObject {
         b.setDirection(dx, dy);
         setSize(size*2/3);
     }
-    
-    public void setSpecialization(Specialization s){
-        spec = s;
-        fireSpecializationChanged();
-    }
-    
-    public Specialization getSpecialization(){
-        return spec;
-    }
 
     @Override
     public String getType() {
@@ -129,16 +128,10 @@ public class Bacterium extends DishObject {
             l.actionPerformed(new ActionEvent(this,2,"reached next level"));
         }
     }
-    
-    private void fireSpecializationChanged(){
-        for(ActionListener l : listeners){
-            l.actionPerformed(new ActionEvent(this,3,"specialization changed"));
-        }
-    }
 
     @Override
     public void destroy() {
-        resources.clear();
+        super.destroy();
         fireDied();
     }
     
@@ -147,4 +140,26 @@ public class Bacterium extends DishObject {
             l.actionPerformed(new ActionEvent(this,4,"died"));
         }
     }
+    
+//    private HashMap<Bolid,BolidInfo> enemyBolids = new HashMap<>();
+//    
+//    private ArrayList<Timer> timers = new ArrayList<>();
+//    
+//    private class BolidInfo {
+//        int size;
+//        double speedX;
+//        double speedY;
+//        
+//        public BolidInfo(int s, double sx, double sy){
+//            size = s;
+//            speedX = sx;
+//            speedY = sy;
+//        }
+//    }
+    
+    private Bolid enemyBolid;
+    private int bolidSize;
+    private double bolidSpeedX;
+    private double bolidSpeedY;
+    private Timer timer = new Timer();
 }
